@@ -6,8 +6,8 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--light);
+  color: var(--black);
 }
 
 .about__image {

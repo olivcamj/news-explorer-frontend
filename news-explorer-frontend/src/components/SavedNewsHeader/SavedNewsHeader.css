@@ -41,7 +41,7 @@
   line-height: 24px;
   text-align: left;
   letter-spacing: 0px;
-  color: #1a1b22;
+  color: var(--dark);
 }
 
 .saved-news-header__keyword {
@@ -53,7 +53,7 @@
   line-height: 24px;
   text-align: left;
   letter-spacing: 0px;
-  color: #1a1b22;
+  color: var(--dark);
 }
 
 .saved-news-header__keyword_hidden {
