@@ -157,6 +157,7 @@ function App() {
   function handleSignin(e) {
     e.preventDefault();
     setIsLoggedIn(true);
+    setIsSigninPopupOpen(false);
   }
 
   function handleSignout(e) {
