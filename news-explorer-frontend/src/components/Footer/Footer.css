@@ -18,16 +18,19 @@
 
 .footer__text {
   margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 48px;
-  color: #1A1B22;
+  color: var(--dark);
 }
 
 .footer__info-link,
 .footer__info-link:link,
 .footer__info-link:visited{
   text-decoration: none;
-  color: #000;
+  color: var(--black);
 }
 
 .footer__links-container {
@@ -60,6 +63,7 @@
   margin-top: 38px;
   max-width: 288px;
   height: 22px;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -76,7 +80,6 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: baseline;
-  
   }
 
   .footer__container {
@@ -91,6 +94,9 @@
     align-items: center;
   }
 
+  .footer__text {
+    line-height: 24px;
+  }
 
   .footer__copyright {
     margin-top: 24px;
