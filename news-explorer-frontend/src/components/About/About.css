@@ -28,7 +28,7 @@
 .about__header {
   height: 46px;
   width: 100%;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -39,7 +39,7 @@
 }
 
 .about__text {
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;

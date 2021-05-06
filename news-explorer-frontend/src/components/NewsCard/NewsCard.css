@@ -56,7 +56,7 @@
 
 .news-card__date {
   margin-bottom: 10px;
-  font-family: "Inter", serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -71,7 +71,7 @@
   height: 60px;
   margin-bottom: 20px;
   overflow: hidden;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
@@ -93,7 +93,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -102,7 +102,7 @@
 }
 
 .news-card__source {
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -120,7 +120,7 @@
   align-items: center;
   background: #fff;
   border-radius: 10px;
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;

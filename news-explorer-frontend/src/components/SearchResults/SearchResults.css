@@ -12,7 +12,7 @@
 .search-results__title {
   width: 90%;
   margin: 0 auto 32px;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -28,7 +28,7 @@
   border-radius: 80px;
   background: #fff;
   border: none;
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 900;

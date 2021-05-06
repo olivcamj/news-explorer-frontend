@@ -16,7 +16,7 @@
 }
 
 .not-found__heading {
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
@@ -28,7 +28,7 @@
   width: 250px;
   margin: 0;
   padding-bottom: 80px;
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;

@@ -23,7 +23,7 @@
 }
 
 .search-form__input::placeholder {
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
