@@ -8,7 +8,7 @@ function SearchForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setBtnColor('#2a65ccx');
+    setBtnColor('#2a65cc');
     props.onClickSearch(searchTerm);
   };
 
