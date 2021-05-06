@@ -14,7 +14,12 @@ return (
           </Link>
         </span>
         <p className="footer__text">
-          <a href="https://practicum.yandex.com" className="footer__info-link">
+          <a
+            href="https://practicum.yandex.com"
+            rel="noreferrer"
+            target="_blank"
+            className="footer__info-link"
+          >
             Practicum by Yandex
           </a>
         </p>
