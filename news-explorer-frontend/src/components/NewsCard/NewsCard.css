@@ -157,8 +157,7 @@
 }
 
 .news-card__icon_action_delete:hover {
-  /*background-image: url("../../images/trash_black.svg"); */
-  background-color:rgba(208, 206, 238, .3);
+  background-image: url("../../images/trash_black.svg");
 }
   
 @media screen and (min-width: 768px) {
@@ -258,7 +257,7 @@
     width: 280px;
   }
 
-  .news-card__label {
+  .news-card__label_right {
     right: 50px;
     left: auto;
   }
