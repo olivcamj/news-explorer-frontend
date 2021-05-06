@@ -36,6 +36,7 @@
   letter-spacing: 0px;
   text-align: center;
   color: var(--dark);
+  cursor: pointer;
 }
   
 .search-results__btn:hover {

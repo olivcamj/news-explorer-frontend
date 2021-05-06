@@ -154,6 +154,7 @@
 .popup__link {
   margin: 5px;
   color: #2f71e5;
+  cursor: pointer;
 }
   
 .popup__link:visited {

@@ -40,6 +40,7 @@
 
 .news-card__icon_action_save {
   background-image: url("../../images/bookmark.svg");
+  cursor: pointer;
 }
 
 .news-card__icon_action_save:hover {
@@ -52,6 +53,7 @@
 
 .news-card__icon_action_delete {
   background-image: url("../../images/trash-icon.svg");
+  cursor: pointer;
 }
 
 .news-card__date {
