@@ -214,6 +214,8 @@
     left: 0%;
   }
   .popup__close {
+    width: 30px;
+    height: 30px;
     position: absolute;
     bottom: 20px;
     right: 10px;
@@ -228,8 +230,8 @@
 
 @media (min-width: 768px) {
   .popup__close {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     top: -40px;
     right: -40px;
   }
