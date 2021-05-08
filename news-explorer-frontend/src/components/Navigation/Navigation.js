@@ -153,7 +153,7 @@ function Navigation(props) {
             )}
             {!props.isLoggedIn && (
               <li className="nav__links">
-                <button className="nav__btn" onClick={props.onClickSignin}>
+                <button className="nav__btn nav__btn_size_l" onClick={props.onClickSignin}>
                   Sign In
                 </button>
               </li>

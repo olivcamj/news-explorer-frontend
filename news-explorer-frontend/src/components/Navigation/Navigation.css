@@ -57,7 +57,7 @@
 }
 
 .nav__btn {
-  width: 288px;
+  width: calc(100% - 32px);
   height: 56px;
   margin-top: 22px;
   padding: 16px 114.5px;
@@ -147,6 +147,18 @@
   cursor: pointer;
 }
 
+@media (min-width: 375px) {
+  .nav__btn {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 425px) {
+  .nav__btn {
+    width: 400px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .nav {
     height: 66px;
@@ -206,11 +218,21 @@
   }
 
   .nav__btn {
-    width: 100px;
+    width: auto;
+    min-width: 100px;
     height: 40px;
     margin-top: 0;
     padding: 8px 12px;
     font-size: 16px;
+  }
+
+  .nav__btn_size_l {
+    width: 152px;
+  }
+
+  .nav__icon {
+    width: 40px;
+    height: 40px;
   }
 }
 
