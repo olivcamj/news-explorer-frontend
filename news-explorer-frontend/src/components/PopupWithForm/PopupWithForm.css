@@ -124,6 +124,10 @@
 }
   
 .popup__input-error {
+  height: 14px;
+  padding: 0;
+  margin: -27px 0 14px;
+  display: block;
   font-family: 'Inter', Arial, sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -133,9 +137,6 @@
   text-align: left;
   opacity: 1;
   color: #ff0000;
-  height: 14px;
-  padding: 0;
-  margin: 0 0 13px;
 }
 
 .popup__link-container {
