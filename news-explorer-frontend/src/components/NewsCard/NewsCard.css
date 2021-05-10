@@ -14,7 +14,7 @@
 }
 
 .news-card__image {
-  width: 288px;
+  width: 288px; 
   height: 196px;
   position: relative;
   border-top-left-radius: 15px;
@@ -69,21 +69,20 @@
 }
 
 .news-card__title {  
-  width: 100%;
+  width: 256px;
   height: 60px;
   margin-bottom: 20px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   font-family: 'Roboto Slab', serif;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
   line-height: 24px;
   color: var(--dark);
-  text-overflow: ellipsis;
-  text-decoration: none; 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 
 .news-card__text {
@@ -140,6 +139,7 @@
   box-shadow: 0px 10px 22px rgba(59, 74, 116, .1);
   font-size: 12px;
   cursor: pointer;
+  text-transform: inherit;
 }
 
 .news-card__label_hidden {
