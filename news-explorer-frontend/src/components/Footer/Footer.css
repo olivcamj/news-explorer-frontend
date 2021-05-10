@@ -73,7 +73,7 @@
 
 @media (min-width: 768px) {
   .footer {
-    height: 80px;
+    height: 64px;
     padding: 0 40px;
     box-sizing: border-box;
     display: flex;
