@@ -3,6 +3,7 @@
 .nav_theme_dark {
  color: var(--light);
 }
+
 .nav_theme_light {
  color: var(--dark);
 }
@@ -33,6 +34,10 @@
   margin-top: 16px;
 }
 
+.nav__links:last-child {
+  margin-top: 22px;
+}
+
 .nav__link {
   width: 100%;
 }
@@ -57,9 +62,8 @@
 }
 
 .nav__btn {
-  width: calc(100% - 32px);
+  width: 288px;
   height: 56px;
-  margin-top: 22px;
   padding: 16px 114.5px;
   background-color: transparent;
   border-radius: 100px;
@@ -114,6 +118,7 @@
 .nav__mobile-menu_hidden {
   display: none;
 }
+
 .nav__mobile {
   color: var(--light);
   display: flex;
@@ -123,6 +128,8 @@
   top: 0;
   right: 21px;
   z-index: 2;
+  box-sizing: border-box;
+  height: auto;
 }
 
 .nav__icon {
@@ -149,6 +156,7 @@
 
 @media (min-width: 375px) {
   .nav__btn {
+    width:calc(100% - 30px);
     justify-content: center;
   }
 }
@@ -192,9 +200,11 @@
   
   .nav__links:first-child {
     margin-top: 0;
+
   }
 
   .nav__links:last-child {
+    margin-top: 0;
     margin-right: 0;
   }
 
