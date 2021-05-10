@@ -39,7 +39,7 @@
 
 .popup__form {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 16px 17px 28px;
   box-sizing: border-box;
   position: relative;
@@ -85,9 +85,9 @@
 }
 
 .popup__input {
-  width: 358px;
+  width:  100%;
   height: 33px;
-  margin: 0 0 3px;
+  margin: 0 0 30px;
   padding: 0;
   border: none;
   border-bottom: 1px solid rgb(0, 0, 0, .2);
@@ -168,8 +168,8 @@
 }
 
 .popup__btn {
+  width: 100%;
   height: 64px;
-  width: 360px;
   border: none;
   border-radius: 100px;
   background: #2f71e5;
@@ -190,7 +190,11 @@
 .popup__btn_signin {
   margin: 15px 0 16px;
 }
-  
+
+.popup__btn_signup {
+  margin: 0 0 16px;
+}
+
 .popup__btn:disabled {
   background: #e6e8eb;
   font-family: 'Roboto', Arial, sans-serif;
@@ -213,6 +217,7 @@
     top: 20%;
     left: 0%;
   }
+
   .popup__close {
     width: 30px;
     height: 30px;
@@ -220,11 +225,26 @@
     bottom: 20px;
     right: 10px;
   }
+
   .popup__form {
     padding: 16px;
   }
+
   .popup__form_success {
     height: 200px;
+  }
+
+  .popup__input {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 9px;
+  }
+
+  .popup__btn {
+    width: 358px;
+    height: 64px;
+    margin: 23px auto;
+    display: block;
   }
 }
 
@@ -237,6 +257,8 @@
   }
 
   .popup__form {
+    height: auto;
+    min-height: 380px;
     padding: 34px 36px 28px;
   }
 
@@ -264,28 +286,8 @@
     margin-top: -185px;
     margin-left: -235px;
   }
-}
 
-@media screen and (max-width: 380px) {
-  .popup__btn {
-    width: 246px;
-    height: 30px;
-    padding: 0;
-    margin-top: 18px;
-  }
-}
-  
-@media screen and (max-width: 514px) {
   .popup__input {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 9px;
-  }
-
-  .popup__btn {
-    width: 288px;
-    height: 64px;
-    margin: 23px auto;
-    display: block;
+      margin-bottom: 31px;
   }
 }
