@@ -2,6 +2,7 @@
   margin: 0 auto;
   padding: 20px 16px;
   width: 100%;
+  min-height: 752px;
   height: auto;
   box-sizing: border-box;
   display: flex;
