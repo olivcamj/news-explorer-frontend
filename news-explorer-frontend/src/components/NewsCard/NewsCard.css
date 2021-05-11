@@ -161,11 +161,11 @@
 .news-card__icon_action_delete:hover {
   background-image: url("../../images/trash_black.svg");
 }
-  
-@media screen and (min-width: 768px) {
-  .news-card {
+
+@media screen and (min-width: 520px) {
+    .news-card {
     width: 224px;
-    height: 420px;
+    height: 390px;
   }
 
   .news-card__content {
@@ -178,21 +178,37 @@
     height: 150px;
   }
 
-  .news-card__date {
+  .news-card__title {
+    width: 100%;
+    height: 52px;
     margin-bottom: 10px;
+    text-decoration:none;
+  }
+
+  .news-card__text {
+    width: 100%;
+  }
+
+   .news-card__source {
+    width: 192px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+  
+@media screen and (min-width: 768px) {
+  .news-card {
+    height: 420px;
   }
 
   .news-card__title {
     height: 72px;
-    margin-bottom: 10px;
-    text-decoration:none;
-    font-size: 22px;
-    line-height: 24px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
     -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  }
+
+  .news-card__date {
+    margin-bottom: 10px;
   }
 
   .news-card__title:visited {
@@ -209,13 +225,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-  }
-
-  .news-card__source {
-    width: 192px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   .news-card__icon {
