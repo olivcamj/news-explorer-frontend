@@ -4,11 +4,13 @@ import './Signin.css';
 
 function Signin(props) {
   const [isBtnDisabled, setIsBtnDisabled] = useState(true);
+  const minLength = 2;
 
     useEffect(() => {
       setIsBtnDisabled(
         props.email === "" ||
           props.password === "" ||
+          props.password.length < minLength ||
           props.errors.email !== "" ||
           props.errors.password !== ""
       );
@@ -62,7 +64,7 @@ function Signin(props) {
           maxLength={200}
         />
         <span className="popup__input-error popup__input-error_centered">
-          {props.errors.result}
+          {props.errors.password}
         </span>
       </label>
       <button
