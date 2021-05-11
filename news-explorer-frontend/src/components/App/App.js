@@ -39,6 +39,23 @@ function App() {
   // Initialize state with width undefined, so server and client renders match
   const [windowSize, setWindowSize] = useState({ width: undefined });
 
+
+  useEffect(() => {
+    function validateFields() {
+      const validEmailRegexp = RegExp(
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/i
+      );
+
+      setError((previous) => ({
+        ...previous,
+        email: validEmailRegexp.test(email) ? "" : "Invalid email address",
+      }));
+    }
+    return () => {
+      validateFields();
+    }
+  }, [email])
+
   function clearInputFields() {
     setEmail("");
     setPassword("");
