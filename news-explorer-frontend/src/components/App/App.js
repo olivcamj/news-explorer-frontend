@@ -66,6 +66,7 @@ function App() {
   function closeAll() {
     setIsSigninPopupOpen(false);
     setIsSignupPopupOpen(false);
+    setIsSuccessPopupOpen(false);
     clearInputFields();
   }
 
@@ -143,20 +144,23 @@ function App() {
     
   }
 
+  function handleSuccessPopup() {
+    setIsSignupPopupOpen(false);
+    setIsSuccessPopupOpen(true);
+  }
 
   function handleSignupPopup() {
+    setIsSignupPopupOpen(false);
     if (isSuccessPopupOpen) {
       setIsSuccessPopupOpen(false);
     }
-    setIsSignupPopupOpen(false);
     setIsSigninPopupOpen(true);
   }
 
   function handleSignup(e) {
     e.preventDefault();
     clearInputFields();
-    console.log("Signup Form sent");
-    setIsSuccessPopupOpen(true);
+    handleSuccessPopup();
   }
 
   function handleSigninBtn() {
