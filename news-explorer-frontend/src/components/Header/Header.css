@@ -1,6 +1,8 @@
 .header {
   width: 100%;
+  height: 56px;
   padding-bottom: 16px;
+  box-sizing: border-box;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -34,6 +36,7 @@
 
 @media (min-width: 768px) {
   .header {
+     height: 66px;
     padding-bottom: 0;
   }
 
