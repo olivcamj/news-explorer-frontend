@@ -61,7 +61,7 @@
 
 .footer__copyright {
   margin-top: 38px;
-  max-width: 293px;
+  min-width: 293px;
   height: 22px;
   font-family: 'Roboto', Arial, sans-serif;
   font-style: normal;
