@@ -39,17 +39,17 @@
   background: none;
 }
 
-.popup__content_signin {
+.popup__content_type_signin {
   width: 100%;
   height: 380px;
 }
 
-.popup__content_signup {
+.popup__content_type_signup {
   width: 100%;
   height: 430px;
 }
 
-.popup__content_success {
+.popup__content_type_success {
   width: 100%;
   height: auto;
   border-radius: 16px;
@@ -68,7 +68,7 @@
   z-index: 1;
 }
 
-.popup__form_success {
+.popup__form_type_success {
   padding: 45px 36px 51px;
 }
 
@@ -161,7 +161,7 @@
   color: var(--light);
 }
 
-.popup__link_success {
+.popup__link_type_success {
   font-size: 18px;
   line-height: 22px;
   text-align: left;
@@ -200,11 +200,11 @@
   box-shadow: none;
 }
 
-.popup__btn_signin {
+.popup__btn_type_signin {
   margin: 15px 0 16px;
 }
 
-.popup__btn_signup {
+.popup__btn_type_signup {
   margin: 0 0 16px;
 }
 
@@ -221,7 +221,7 @@
     padding: 16px;
   }
 
-  .popup__form_success {
+  .popup__form_type_success {
     height: 200px;
   }
 
@@ -262,7 +262,7 @@
     padding: 34px 36px 28px;
   }
 
-  .popup__form_success {
+  .popup__form_type_success {
     min-height: 182px;
   }
 
@@ -275,17 +275,17 @@
     margin-left: -235px;
   }
 
-  .popup__content_signin {
+  .popup__content_type_signin {
     width: 430px;
     height: 380px;
   }
 
-  .popup__content_signup {
+  .popup__content_type_signup {
     height: 457px;
     width: 430px;
   }
 
-  .popup__content_success {
+  .popup__content_type_success {
     height: 182px;
     width: 430px;
     border-radius: 16px;

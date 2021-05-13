@@ -11,7 +11,7 @@ function Success(props) {
       onClose={props.onClose}
     >
       <div
-        className="popup__link popup__link_success"
+        className="popup__link popup__link_type_success"
         onClick={props.onClickLink}
       >
         Sign In

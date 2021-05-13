@@ -63,12 +63,12 @@ function Signin(props) {
           minLength={2}
           maxLength={200}
         />
-        <span className="popup__input-error popup__input-error_centered">
+        <span className="popup__input-error popup__input-error_position_centered">
           {props.errors.password}
         </span>
       </label>
       <button
-        className="popup__btn popup__btn_signin"
+        className="popup__btn popup__btn_type_signin"
         aria-label="Sign in"
         value="Sign in"
         disabled={isBtnDisabled}

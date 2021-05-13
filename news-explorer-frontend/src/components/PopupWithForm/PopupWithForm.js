@@ -17,7 +17,7 @@ function PopupWithForm(props) {
       onClick={handlePopupClick}
     >
       <div
-        className={`popup__content popup__content_${props.name}`}
+        className={`popup__content popup__content_type_${props.name}`}
         ref={refObject}
       >
         <button
@@ -28,7 +28,7 @@ function PopupWithForm(props) {
           onClick={props.onClose}
         ></button>
         <form
-          className={`popup__form popup__form_${props.name}`}
+          className={`popup__form popup__form_type_${props.name}`}
           name={props.name}
           noValidate
           onSubmit={props.onSubmit}

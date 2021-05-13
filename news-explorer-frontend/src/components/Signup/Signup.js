@@ -86,7 +86,7 @@ function Signup(props) {
         {props.errors.result}
       </p>
       <button
-        className="popup__btn popup__btn_signup"
+        className="popup__btn popup__btn_type_signup"
         aria-label="Sign up"
         value="Sign up"
         disabled={isBtnDisabled}

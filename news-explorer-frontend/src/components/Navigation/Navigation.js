@@ -103,7 +103,7 @@ function Navigation(props) {
             </li>
             {props.isLoggedIn && (
               <>
-                <li className="nav__links nav__saved_active">
+                <li className="nav__links nav__saved_action_active">
                   <NavLink
                     exact
                     to="/saved-news"
@@ -112,7 +112,7 @@ function Navigation(props) {
                         ? "nav__link_dark"
                         : "nav__link"
                     }`}
-                    activeClassName="nav__selected nav__selected_black nav__selected_saved"
+                    activeClassName="nav__selected nav__selected_view_black nav__selected_position_saved"
                   >
                     Saved Articles
                   </NavLink>
