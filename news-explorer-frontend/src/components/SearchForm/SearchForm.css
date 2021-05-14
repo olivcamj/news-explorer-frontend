@@ -31,7 +31,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  letter-spacing: 0px;
   text-align: left;
   color: #b6bcbf;
 }
@@ -43,7 +42,7 @@
   border: 1px solid #2f71e5;
   background: #2f71e5;
   border-radius: 100px;
-  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, .2);
   color: var(--light);
   font-family: 'Roboto', Arial, sans-serif;
   font-style: normal;
@@ -59,13 +58,13 @@
 }
 
 .visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 @media (min-width: 768px) {
@@ -87,7 +86,7 @@
     width: 160px;
     height: 56px;
     position: absolute;
-    right: 0px;
+    right: 0;
     margin-top: 0;
   }
 }

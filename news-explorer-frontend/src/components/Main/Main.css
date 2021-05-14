@@ -45,7 +45,7 @@
   margin: 16px 0 0;
   font-family: 'Roboto', Arial, sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
 }
@@ -104,6 +104,7 @@
   .main__content {
     padding-top: 80px;
   }
+
   .main__heading {
     width: 608px;
     height: 128px;

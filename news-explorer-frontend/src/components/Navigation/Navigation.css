@@ -97,7 +97,7 @@
   z-index: -1;
   background-color: rgba(0,0,0, .5);
   opacity: 1;
-  transition: visibility 0.2s, opacity 0.2s linear;
+  transition: visibility .2s, opacity .2s linear;
 }
 
 .nav__mobile-menu {
@@ -111,7 +111,7 @@
   background-color: var(--dark);
   visibility: visible;
   opacity: 1;
-  transition: visibility 0.2s, opacity 0.2s linear;
+  transition: visibility .2s, opacity .2s linear;
   z-index: 1;
 }
 
@@ -215,14 +215,14 @@
 
   .nav__selected {
     width: 100%;
-    border-bottom: 3px solid #fff;
-    padding-bottom: 21px
+    border-bottom: 3px solid var(--light);
+    padding-bottom: 21px;
   }
 
   .nav__selected_view_black {
     border-bottom: 3px solid var(--black);
   } 
-  
+
   .nav__selected_position_saved {
     display: inherit;
     align-self: flex-end;
@@ -262,7 +262,6 @@
   }
 
   .nav__selected {
-    padding-bottom: 28px
+    padding-bottom: 28px;
   }
-
 }

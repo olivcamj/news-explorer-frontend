@@ -28,7 +28,7 @@
 
 .footer__info-link,
 .footer__info-link:link,
-.footer__info-link:visited{
+.footer__info-link:visited {
   text-decoration: none;
   color: var(--black);
 }
@@ -48,7 +48,7 @@
 }
 .footer__icon-link:visited {
   text-decoration: none;
-  color: black;
+  color: var(--black);
 }
 
 .footer__social {
@@ -109,11 +109,11 @@
   }
 }
 
-@media  (min-width: 1024px) {
+@media (min-width: 1024px) {
   .footer {
     padding: 0 104px;
     width: 100%;
     max-width: 1440px;
-    margin: 0 auto
+    margin: 0 auto;
   }
 }

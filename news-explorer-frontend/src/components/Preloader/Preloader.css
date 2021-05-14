@@ -21,9 +21,6 @@
 	height: 50px;
 	border-bottom-color: #888;
 	border-radius: 50%;
-	/* position: absolute;
-	top: 0;
-	left: 0; */
 	margin: auto;
 	animation: spin .79s infinite linear;
 }
