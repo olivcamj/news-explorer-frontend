@@ -10,11 +10,13 @@ function Success(props) {
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
-      <div
-        className="popup__link popup__link_type_success"
-        onClick={props.onClickLink}
-      >
-        Sign In
+      <div className="popup__link-container">
+        <span
+          className="popup__link popup__link_type_success"
+          onClick={props.onClickLink}
+        >
+          Sign In
+        </span>
       </div>
     </PopupWithForm>
   );
