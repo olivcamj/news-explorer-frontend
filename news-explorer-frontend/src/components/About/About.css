@@ -65,10 +65,6 @@
   .about {
     flex-direction: column;
   }
-
-  .about__header {
-    text-align: center;
-  }
 }
 
 @media screen and (min-width: 732px) {
