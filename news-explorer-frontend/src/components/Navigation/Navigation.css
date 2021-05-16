@@ -1,0 +1,267 @@
+/* use className theme_dark to inverse colors */
+/**** based on device && isLoggedIn ****/
+.nav_theme_dark {
+ color: var(--light);
+}
+
+.nav_theme_light {
+ color: var(--dark);
+}
+
+.nav__linkList {
+  width: 100%;
+  height: 21vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 16px;
+  color: var(--light);
+  list-style: none; 
+  font-family: 'Roboto', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 56px;
+  text-align: left;
+  z-index: 2;
+}
+
+.nav__links {
+  height: 58px;
+}
+
+.nav__links:first-child {
+  margin-top: 16px;
+}
+
+.nav__links:last-child {
+  margin-top: 22px;
+}
+
+.nav__link {
+  width: 100%;
+}
+
+.nav__link,
+.nav__link:link,
+.nav__link:visited {
+  text-decoration: none;
+  color: var(--light);
+}
+
+.nav__link_dark,
+.nav__link_dark:link,
+.nav__link_dark:visited {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.nav__img {
+  width: 24px;
+  height: 24px;
+}
+
+.nav__btn {
+  width: 288px;
+  height: 56px;
+  padding: 16px 114.5px;
+  background-color: transparent;
+  border-radius: 100px;
+  border: 1px solid var(--light);
+  outline: none;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--light);
+  cursor: pointer;
+}
+
+.nav__btn_theme_dark {
+  border-color: var(--border);
+}
+
+.nav__btn_user {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav__btn_username {
+  margin-right: 10px;
+}
+
+.nav__mobile-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-color: rgba(0,0,0, .5);
+  opacity: 1;
+  transition: visibility .2s, opacity .2s linear;
+}
+
+.nav__mobile-menu {
+  padding-top: 56px;
+  padding-bottom: 24px;
+  width: 100vw;
+  height: 210px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--dark);
+  visibility: visible;
+  opacity: 1;
+  transition: visibility .2s, opacity .2s linear;
+  z-index: 1;
+}
+
+.nav__mobile-menu_hidden {
+  display: none;
+}
+
+.nav__mobile {
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  right: 21px;
+  z-index: 2;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.nav__icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.nav__close {
+  padding: 0;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  z-index: 3;
+  cursor: pointer;
+}
+
+@media (min-width: 375px) {
+  .nav__btn {
+    width:calc(100% - 30px);
+    justify-content: center;
+  }
+}
+
+@media (min-width: 425px) {
+  .nav__btn {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    height: 66px;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 40px;
+  }
+
+  .nav__linkList {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    color: var(--dark);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .nav__links {
+    min-width: 64px; 
+    margin-right: 16px;
+    height: auto;
+  }
+  
+  .nav__links:first-child {
+    margin-top: 0;
+
+  }
+
+  .nav__links:last-child {
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .nav__saved_action_active {
+    width: 160px;
+    height: 30px;
+  }
+
+  .nav__selected {
+    width: 100%;
+    border-bottom: 3px solid var(--light);
+    padding-bottom: 21px;
+  }
+
+  .nav__selected_view_black {
+    border-bottom: 3px solid var(--black);
+  } 
+
+  .nav__selected_position_saved {
+    display: inherit;
+    align-self: flex-end;
+  }
+
+  .nav__btn {
+    width: auto;
+    min-width: 100px;
+    height: 40px;
+    margin-top: 0;
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  .nav__btn_size_l {
+    width: 152px;
+  }
+
+  .nav__icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    height: 80px;
+    margin-right: 104px;
+  }
+
+  .nav__linkList {  
+    margin-right: 32px;
+  }
+
+  .nav__saved_action_active {
+    width: 178px;
+  }
+
+  .nav__selected {
+    padding-bottom: 28px;
+  }
+}
