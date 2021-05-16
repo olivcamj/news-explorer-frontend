@@ -112,6 +112,10 @@
   outline: none;
 }
 
+.popup__input:focus {
+  border-bottom: 1px solid var(--black);
+}
+
 .popup__input::placeholder {
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
