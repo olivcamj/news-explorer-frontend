@@ -48,20 +48,31 @@ function NewsCard(props) {
       ) : (
         <button
           className="news-card__icon news-card__icon_action_delete"
+          onMouseEnter={handleShowToolTip}
+          onMouseLeave={handleHideToolTip}
           onClick={handleDelete}
         ></button>
-      )
-      }
-      {!props.isLoggedIn && (
-        <div
-          className={`news-card__label news-card__label_right ${
-            showToolTip ? "" : "news-card__label_hidden"
-          }`}
-          onClick={props.onClickLink}
-        >
-          Sign in to save articles
-        </div>
       )}
+      {!props.isLoggedIn && (props.location.pathname === "/") && (
+            <div
+              className={`news-card__label news-card__label_right ${
+                showToolTip ? "" : "news-card__label_hidden"
+              }`}
+              onClick={props.onClickLink}
+            >
+              Sign in to save articles
+            </div>
+          )}
+      {props.isLoggedIn && (props.location.pathname === "/saved-news") && (
+            <div
+              className={`news-card__label news-card__label_right ${
+                showToolTip ? "" : "news-card__label_hidden"
+              }`}
+              onClick={props.handleDelete}
+            >
+              Remove from saved
+            </div>
+          )}
       <div
         className={`news-card__label news-card__label_tag ${
           props.location.pathname === "/saved-news"
