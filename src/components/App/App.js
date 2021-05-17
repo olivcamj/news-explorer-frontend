@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Switch, Route, useLocation } from "react-router-dom";
 import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
@@ -15,7 +15,7 @@ import { cardData } from "../../utils/CardData.js";
 
 function App() {
   let location = useLocation();
- 
+
   const [preloaderVisible, setPreloaderVisible] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -103,7 +103,7 @@ function App() {
 
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleClickSave() {
@@ -113,7 +113,7 @@ function App() {
     }
     console.log("You have clicked save");
   }
-  
+
   function handleClickSearch(searchTerm) {
     setShowSearchResults(false);
     setPreloaderVisible(true);
@@ -141,7 +141,7 @@ function App() {
         setErrorMessage("");
       }
     }, 500); // wait 1/2 a second
-    
+
   }
 
   function handleSuccessPopup() {
@@ -185,7 +185,7 @@ function App() {
     e.preventDefault();
     setIsLoggedIn(false);
   }
-  
+
   return (
     <>
       <Header

@@ -1,3 +1,4 @@
+import React from 'react'
 import './Preloader.css'
 import preloader from '../../images/Ellipse.png'
 

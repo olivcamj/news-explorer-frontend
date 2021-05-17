@@ -1,3 +1,4 @@
+import React from 'react'
 import NewsCard from '../NewsCard/NewsCard.js';
 import './NewsCardList.css';
 

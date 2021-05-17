@@ -1,3 +1,4 @@
+import React from 'react'
 import notfound from '../../images/not-found.png';
 import './NotFound.css';
 

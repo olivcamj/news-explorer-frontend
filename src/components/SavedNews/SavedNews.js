@@ -1,3 +1,4 @@
+import React from 'react'
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader.js';
 import NewsCardList from '../NewsCardList/NewsCardList.js';
 import './SavedNews.css';
