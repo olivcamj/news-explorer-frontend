@@ -11,6 +11,7 @@ import Success from '../Success/Success.js';
 import './App.css';
 
 import { cardData } from "../../utils/CardData.js";
+import newsApi from '../../utils/NewsApi';
 
 
 function App() {
@@ -32,13 +33,27 @@ function App() {
     password: "",
     result: "",
   });
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   //const [signinBtnDisabled, setSigninBtnDisabled] = useState(false);
   const [cards, setCards] = useState([]);
 
   // Initialize state with width undefined, so server and client renders match
   const [windowSize, setWindowSize] = useState({ width: undefined });
 
+  function displayDate(date) {
+    const dateObj = new Date(date);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return dateObj.toLocaleString("en-US", options);
+  }
+
+  function convertDate() {
+    let date = new Date();
+    // expected example output: current date without 1. day of the week or time
+    let to = date.toISOString().slice(0, 10);
+    // calculate a date 7 days ago then return a string 
+    let from = date.toJSON(date.setDate(date.getDate() - 7)).slice(0, 10);
+    return { to, from };
+  }
 
   useEffect(() => {
     function validateFields() {
@@ -53,8 +68,8 @@ function App() {
     }
     return () => {
       validateFields();
-    }
-  }, [email])
+    };
+  }, [email]);
 
   function clearInputFields() {
     setEmail("");
@@ -115,34 +130,45 @@ function App() {
   }
 
   function handleClickSearch(searchTerm) {
+    const dateInput = convertDate();
     setShowSearchResults(false);
     setPreloaderVisible(true);
-    /* Temporarily force a timer */
-    setTimeout(function(){
-      if ((!searchTerm) || "") {
-        setPreloaderVisible(false);
-        setErrorMessage("Please enter a search term");
-        setShowSearchResults(true);
-        return;
-      } else {
-        setPreloaderVisible(false);
-        // return cards that match searchTerm
-        setCards(() => {
-          return cardData.filter((match) => {
-            // use card's properties
-            const article =
-              match.title.toLowerCase() ||
-              match.keyword.toLowerCase() ||
-              match.source.toLowerCase();
-            return article.includes(searchTerm.toLowerCase());
-          });
-        });
-        setShowSearchResults(true);
-        setErrorMessage("");
-      }
-    }, 500); // wait 1/2 a second
 
-  }
+    if (!searchTerm || "") {
+      setPreloaderVisible(false);
+      setErrorMessage("Please enter a search term");
+      setShowSearchResults(true);
+      return;
+    } else {
+      newsApi
+      .getCardList(searchTerm, dateInput.from, dateInput.to)
+      .then((response) => {
+        const { status, articles } = response;
+        if (status === "ok") {
+          setCards(
+            articles.map((data, index) => ({
+              key: index,
+              source: data.source.name,
+              title: data.title,
+              date: displayDate(data.publishedAt),
+              text: data.description,
+              link: data.url,
+              image: data.urlToImage,
+              saved: false,
+            }))
+          );
+          setShowSearchResults(true);
+          setPreloaderVisible(false);
+        } else {
+          throw new Error(articles.statusText);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setPreloaderVisible(false);
+        setErrorMessage("");
+    })
+  }}
 
   function handleSuccessPopup() {
     setIsSignupPopupOpen(false);
