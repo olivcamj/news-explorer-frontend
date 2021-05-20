@@ -10,8 +10,8 @@ import Footer from '../Footer/Footer.js';
 import Success from '../Success/Success.js';
 import './App.css';
 
-import newsApi from '../../utils/NewsApi';
-
+import newsApi from '../../utils/NewsApi.js';
+import { uncaughtErrorMessage, displayDate, convertDate } from '../../utils/constants.js';
 
 function App() {
   let location = useLocation();
@@ -39,20 +39,6 @@ function App() {
   // Initialize state with width undefined, so server and client renders match
   const [windowSize, setWindowSize] = useState({ width: undefined });
 
-  function displayDate(date) {
-    const dateObj = new Date(date);
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return dateObj.toLocaleString("en-US", options);
-  }
-
-  function convertDate() {
-    let date = new Date();
-    // expected example output: current date without 1. day of the week or time
-    let to = date.toISOString().slice(0, 10);
-    // calculate a date 7 days ago then return a string 
-    let from = date.toJSON(date.setDate(date.getDate() - 7)).slice(0, 10);
-    return { to, from };
-  }
 
   useEffect(() => {
     function validateFields() {
@@ -159,7 +145,7 @@ function App() {
           setShowSearchResults(true);
           setPreloaderVisible(false);
         } else {
-          throw new Error(articles.statusText);
+          throw new Error(uncaughtErrorMessage);
         }
       })
       .catch((err) => {
