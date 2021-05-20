@@ -10,7 +10,6 @@ import Footer from '../Footer/Footer.js';
 import Success from '../Success/Success.js';
 import './App.css';
 
-import { cardData } from "../../utils/CardData.js";
 import newsApi from '../../utils/NewsApi';
 
 
@@ -273,7 +272,7 @@ function App() {
           <SavedNews
             isLoggedIn={isLoggedIn}
             location={location}
-            cards={cardData}
+            cards={cards}
           />
         </Route>
       </Switch>
