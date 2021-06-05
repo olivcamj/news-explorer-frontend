@@ -10,13 +10,13 @@ function SavedNews(props) {
       <SavedNewsHeader
         location={props.location}
         cards={props.cards}
-        onDelete={props.onDelete}
       />
       <section className="saved-news">
         <NewsCardList
           isLoggedIn={props.isLoggedIn}
           location={props.location}
           cards={props.cards}
+          onDelete={props.onDelete}
         />
       </section>
     </>
