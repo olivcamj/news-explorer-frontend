@@ -68,7 +68,7 @@ function NewsCard(props) {
               className={`news-card__label news-card__label_right ${
                 showToolTip ? "" : "news-card__label_hidden"
               }`}
-              onClick={props.handleDelete}
+              onClick={handleDelete}
             >
               Remove from saved
             </div>
