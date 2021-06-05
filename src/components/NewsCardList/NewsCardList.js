@@ -13,7 +13,7 @@ function NewsCardList(props) {
       {props.cards &&
         props.cards.map((card) => (
           <NewsCard
-            key={card.id}
+            key={card._id}
             card={card}
             location={props.location}
             isLoggedIn={props.isLoggedIn}
