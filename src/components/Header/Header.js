@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation.js';
-import "./Header.css";
+import './Header.css';
 
 function Header(props) {
-
   return (
     <header
       className={`header 
@@ -26,7 +25,6 @@ function Header(props) {
         NewsExplorer
       </Link>
       <Navigation
-        name="Elise"
         location={props.location}
         isLoggedIn={props.isLoggedIn}
         isMobile={props.isMobile}
