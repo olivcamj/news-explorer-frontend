@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { NavLink, Link } from 'react-router-dom';
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Logout_theme_light from '../../images/logout-black.svg';
 import Logout_theme_dark from '../../images/logout-white.svg';
 import Close from '../../images/close-icon.svg';
@@ -11,7 +12,8 @@ import hamburger_dark from '../../images/hamburger-dark.svg';
 
 function Navigation(props) {
   const handleMobileMenuDisplay = () => props.setIsMobileMenuOpen(!props.isMobileMenuOpen);
-   
+  const currentUser = React.useContext(CurrentUserContext);
+
   return (
     <>
       {props.isMobile ? (
@@ -67,7 +69,7 @@ function Navigation(props) {
                         className="nav__btn_username nav_theme_dark"
                         aria-label="username"
                       >
-                        {props.name}
+                        {currentUser && currentUser.name}
                       </span>
                       <img
                         src={Logout_theme_dark}
@@ -136,7 +138,7 @@ function Navigation(props) {
                       }`}
                       aria-label="username"
                     >
-                      {props.name}
+                      {currentUser && currentUser.name}
                     </span>
                     <img
                       src={`
@@ -155,7 +157,10 @@ function Navigation(props) {
             )}
             {!props.isLoggedIn && (
               <li className="nav__links">
-                <button className="nav__btn nav__btn_size_l" onClick={props.onClickSignin}>
+                <button
+                  className="nav__btn nav__btn_size_l"
+                  onClick={props.onClickSignin}
+                >
                   Sign In
                 </button>
               </li>
