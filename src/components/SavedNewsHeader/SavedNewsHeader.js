@@ -13,7 +13,7 @@ function SavedNewsHeader(props) {
   const frequentKeywordsList = () => {
     // go through all the keywords in saved cards array
     let savedCards = props.cards;
-    if (savedCards) {
+    if (savedCards > 0) {
       // eslint-disable-next-line
       savedCards.map((el) => {
         list.push(el.keyword);
