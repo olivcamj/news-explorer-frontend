@@ -221,11 +221,13 @@
 
   .nav__selected_view_black {
     border-bottom: 3px solid var(--black);
+    padding-bottom: 17px;
   } 
 
   .nav__selected_position_saved {
     display: inherit;
     align-self: flex-end;
+    padding-top: 3px;
   }
 
   .nav__btn {
@@ -263,5 +265,9 @@
 
   .nav__selected {
     padding-bottom: 28px;
+  }
+
+  .nav__selected_view_black {
+    padding-bottom: 24px;
   }
 }
