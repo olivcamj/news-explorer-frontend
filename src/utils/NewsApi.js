@@ -4,15 +4,18 @@ class NewsApi {
     this._apiKey = apiKey;
   }
 
-  getCardList(request, from, to) {
-    return fetch(
-      `${this._baseUrl}?language=en&q=${request}&from=${from}&to=${to}&apiKey=${this._apiKey}&pageSize=100`, {
+  async getCardList(request, from, to) {
+    return await fetch(
+      `${this._baseUrl}?language=en&q=${request}&from=${from}&to=${to}&pageSize=100&sortBy=popularity&apiKey=${this._apiKey}`,
+      {
         headers: {
           authorization: `Bearer ${this._apiKey}`,
-        }
-      })
-    .then((res) => res.ok ? res.json() : Promise.reject(`Error! ${res.statusText}`))
-    .catch((err) => console.log(err));
+        },
+      }
+    )
+    .then((res) =>
+      res.ok ? res.json() : Promise.reject(`Error! ${res.statusText}`)
+    )
   }
 }
 
