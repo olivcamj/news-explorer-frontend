@@ -3,17 +3,14 @@ import './NewsCard.css';
 
 function NewsCard(props) {
   const [showToolTip, setShowToolTip] = useState(false);
-  const [like, setLike] = useState(false);
+  
   
   function handleClickSave() {
-    if (props.card.saved === false && props.isLoggedIn) {
-      setLike(!like);
-    }
     props.onClickSave(props.card);
   }
 
   function handleShowToolTip() {
-    if (!props.loggedIn) {
+    if (!props.isLoggedIn) {
       setShowToolTip(true);
     } else {
       setShowToolTip(false);
@@ -39,7 +36,7 @@ function NewsCard(props) {
       {props.location.pathname === "/" ? (
         <button
           className={`news-card__icon news-card__icon_action_save${
-            like === false ? "" : "_active"
+            props.card.isSaved === false ? "" : "_active"
           }`}
           onMouseEnter={handleShowToolTip}
           onMouseLeave={handleHideToolTip}
@@ -53,26 +50,26 @@ function NewsCard(props) {
           onClick={handleDelete}
         ></button>
       )}
-      {!props.isLoggedIn && (props.location.pathname === "/") && (
-            <div
-              className={`news-card__label news-card__label_right ${
-                showToolTip ? "" : "news-card__label_hidden"
-              }`}
-              onClick={props.onClickLink}
-            >
-              Sign in to save articles
-            </div>
-          )}
-      {props.isLoggedIn && (props.location.pathname === "/saved-news") && (
-            <div
-              className={`news-card__label news-card__label_right ${
-                showToolTip ? "" : "news-card__label_hidden"
-              }`}
-              onClick={handleDelete}
-            >
-              Remove from saved
-            </div>
-          )}
+      {!props.isLoggedIn && props.location.pathname === "/" && (
+        <div
+          className={`news-card__label news-card__label_right ${
+            showToolTip ? "" : "news-card__label_hidden"
+          }`}
+          onClick={props.onClickLink}
+        >
+          Sign in to save articles
+        </div>
+      )}
+      {props.isLoggedIn && props.location.pathname === "/saved-news" && (
+        <div
+          className={`news-card__label news-card__label_right ${
+            showToolTip ? "" : "news-card__label_hidden"
+          }`}
+          onClick={handleDelete}
+        >
+          Remove from saved
+        </div>
+      )}
       <div
         className={`news-card__label news-card__label_tag ${
           props.location.pathname === "/saved-news"
@@ -88,7 +85,6 @@ function NewsCard(props) {
         <a href={props.card.link} className="news-card__title">
           {props.card.title}
         </a>
-
         <div className="news-card__text">{props.card.text}</div>
         <div className="news-card__source">{props.card.source}</div>
       </div>
