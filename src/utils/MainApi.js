@@ -12,10 +12,9 @@ class MainApi {
       },
       body: JSON.stringify({ email, name, password }),
     })
-      .then((res) =>
-        res.ok ? res.json() : Promise.reject(`Error! ${res.statusText}`)
-      )
-      .catch((err) => console.log(err));
+    .then((res) =>
+      res.ok ? res.json() : Promise.reject(`Error! ${res.statusText}`)
+    )
   }
 
   authorize(email, password) {
@@ -27,38 +26,32 @@ class MainApi {
       },
       body: JSON.stringify({ email, password }),
     })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem("jwt", data.token);
-          return data;
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      if (data.token) {
+        localStorage.setItem("jwt", data.token);
+        return data;
+      }
+    })
   }
 
-  getUser(token) {
-    return fetch(`${this._baseUrl}/users/me`, {
+  async getUser(token) {
+    return await fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
       headers: {
-        "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
       },
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => data)
-      .catch((err) => {
-        console.log(err);
-      });
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => data)
   }
 
-  getSavedArticles(token) {
-    return fetch(`${this._baseUrl}/articles`, {
+  async getSavedArticles(token) {
+    return await fetch(`${this._baseUrl}/articles`, {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -71,8 +64,8 @@ class MainApi {
     })
   }
 
-  saveArticle(article, token) {
-    return fetch(`${this._baseUrl}/articles`, {
+  async saveArticle(article, token) {
+    return await fetch(`${this._baseUrl}/articles`, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -95,24 +88,25 @@ class MainApi {
     })
   }
 
-  deleteArticle(id, token) {
-    return fetch(`${this._baseUrl}/articles/${id}`, {
+  async deleteArticle(id, token) {
+  return await fetch(`${this._baseUrl}/articles/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       }
-    })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    });
+  })  
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+  })
   }
-}
+};
 
 const mainApi = new MainApi({
   baseUrl: "https://www.api.explorenews.students.nomoreparties.site",
+  //baseUrl: "http://localhost:3001",
 });
 
 
