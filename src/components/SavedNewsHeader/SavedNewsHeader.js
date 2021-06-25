@@ -13,7 +13,7 @@ function SavedNewsHeader(props) {
   const frequentKeywordsList = () => {
     // go through all the keywords in saved cards array
     let savedCards = props.cards;
-    if (savedCards > 0) {
+    if (savedCards && savedCards.length > 0) {
       // eslint-disable-next-line
       savedCards.map((el) => {
         list.push(el.keyword);
@@ -46,8 +46,11 @@ function SavedNewsHeader(props) {
       // Using the list of frequent keywords return the occurence of the least popular keywords
       let arr = findMostFrequentKeywords(frequentKeywordsList());
       let remainingAmount = arr.slice(TOP_TWO).length;
-      let moreKeywords = props.cards.length > THREE_ITEMS ? "others" : "other";
-      return `, and ${remainingAmount} ${moreKeywords}`;
+      let moreKeywords = (arr.length > THREE_ITEMS) ? "others" : "other";
+
+      if (arr.length > TOP_TWO) {
+        return `, and ${remainingAmount} ${moreKeywords}`;
+      } 
     }
   }
 
