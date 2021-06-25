@@ -11,9 +11,9 @@ function NewsCardList(props) {
         </p>
       )}
       {props.cards &&
-        props.cards.map((card) => (
+        props.cards.map((card, index) => (
           <NewsCard
-            key={card._id}
+            key={index}
             card={card}
             location={props.location}
             isLoggedIn={props.isLoggedIn}
