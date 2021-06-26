@@ -60,7 +60,7 @@ function Signin(props) {
           className="popup__input"
           placeholder="Enter Password"
           required
-          minLength={2}
+          minLength={8}
           maxLength={200}
         />
         <span className="popup__input-error popup__input-error_position_centered">

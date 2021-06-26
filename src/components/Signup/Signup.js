@@ -63,7 +63,7 @@ function Signup(props) {
           value={props.password}
           onChange={handlePassword}
           required
-          minLength={2}
+          minLength={8}
           maxLength={200}
         />
         <span className="popup__input-error">{props.errors.password}</span>
