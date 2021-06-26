@@ -50,7 +50,7 @@ function App() {
   useEffect(() => {
     function validateFields() {
       const validEmailRegexp = RegExp(
-        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/i
+        /^\w+([.-]?\w+)*(@)\w+([.-]?\w+)*(\.\w{2,3})+$/i
       );
 
       setError((previous) => ({
