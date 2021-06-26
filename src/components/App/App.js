@@ -133,7 +133,6 @@ function App() {
   }
 
  async function handleDeleteCard(card) {
-  console.log(' this is the id of the card as it is passed to the delete handler', card?._id)
   await mainApi
       .deleteArticle(card._id, token)
       .then((res) => {
