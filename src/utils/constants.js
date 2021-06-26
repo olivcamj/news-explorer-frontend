@@ -1,5 +1,12 @@
 const uncaughtErrorMessage = "Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later."
 
+const MOBILE_WINDOW_SIZE = 767;
+const ESC_KEYCODE = 27;
+
+const TOP_TWO = 2;
+const ZERO_ITEMS = 0;
+const THREE_ITEMS = 3;
+
 function displayDate(date) {
   const dateObj = new Date(date);
   const options = { year: "numeric", month: "long", day: "numeric" };
@@ -16,5 +23,12 @@ function convertDate() {
 }
 
 export {
-  uncaughtErrorMessage, displayDate, convertDate
+  uncaughtErrorMessage,
+  MOBILE_WINDOW_SIZE,
+  ESC_KEYCODE,
+  TOP_TWO,
+  ZERO_ITEMS,
+  THREE_ITEMS,
+  displayDate,
+  convertDate,
 };

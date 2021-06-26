@@ -14,7 +14,13 @@ import './App.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import newsApi from '../../utils/NewsApi.js';
 import  mainApi  from '../../utils/MainApi.js';
-import { uncaughtErrorMessage, displayDate, convertDate } from '../../utils/constants.js';
+import {
+  uncaughtErrorMessage,
+  MOBILE_WINDOW_SIZE,
+  ESC_KEYCODE,
+  displayDate,
+  convertDate,
+} from "../../utils/constants.js";
 
 function App() {
   let location = useLocation();
@@ -98,11 +104,11 @@ function App() {
   }
 
   let size = useWindowSize();
-  let isMobile = size.width <= 767;
+  let isMobile = size.width <= MOBILE_WINDOW_SIZE;
 
   useEffect(() => {
     function close(e) {
-      if (e.keyCode === 27) {
+      if (e.keyCode === ESC_KEYCODE) {
         clearInputFields();
         closeAll();
       }

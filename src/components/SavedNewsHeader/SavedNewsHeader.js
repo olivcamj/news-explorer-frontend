@@ -1,4 +1,5 @@
 import React from 'react'
+import { TOP_TWO, ZERO_ITEMS, THREE_ITEMS } from "../../utils/constants.js";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import './SavedNewsHeader.css';
@@ -6,9 +7,6 @@ import './SavedNewsHeader.css';
 function SavedNewsHeader(props) {
   const currentUser = React.useContext(CurrentUserContext);
 
-  const TOP_TWO = 2;
-  const ZERO_ITEMS = 0;
-  const THREE_ITEMS = 3;
   let list = [];
   const frequentKeywordsList = () => {
     // go through all the keywords in saved cards array
