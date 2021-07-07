@@ -1,16 +1,15 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './SearchForm.css';
-
 
 function SearchForm(props) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [btnColor, setBtnColor] = useState('#2f71e5')
+  const [btnColor, setBtnColor] = useState('#2f71e5');
 
   function handleSubmit(e) {
     e.preventDefault();
     setBtnColor('#2a65cc');
     props.onClickSearch(searchTerm);
-  };
+  }
 
   function handleSearchChange(e) {
     setSearchTerm(e.target.value);
