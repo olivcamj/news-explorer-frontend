@@ -8,7 +8,7 @@ function SearchResults(props) {
   const [expanded, setExpanded] = useState(false);
 
   const showThreeAdditionalItems = 3;
-   
+
   function handleClickShowMore() {
     setItemsToShow(itemsToShow);
     if (itemsToShow < props.cards.length) {
@@ -19,9 +19,9 @@ function SearchResults(props) {
     }
     setExpanded(false);
   }
-  
 
-  return props.cards.length === 0 || props.errorMessage !== "" ? (
+
+  return props.cards.length === 0 || props.errorMessage !== '' ? (
     <NotFound errorMessage={props.errorMessage} />
   ) : (
     <div className="search-results">
@@ -39,8 +39,8 @@ function SearchResults(props) {
       <button
         className={`search-results__btn${
          expanded === false && props.cards.length > itemsToShow
-            ? ""
-            : "_hidden"
+            ? ''
+            : '_hidden'
         }`}
         onClick={handleClickShowMore}
       >
