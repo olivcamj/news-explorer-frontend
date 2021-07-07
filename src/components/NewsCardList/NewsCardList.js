@@ -1,5 +1,5 @@
-import React from 'react'
-import NewsCard from '../NewsCard/NewsCard.js';
+import React from 'react';
+import NewsCard from '../NewsCard/NewsCard';
 import './NewsCardList.css';
 
 function NewsCardList(props) {
@@ -10,7 +10,7 @@ function NewsCardList(props) {
           Save your favorite news articles to your list!!!
         </p>
       )}
-      {props.cards &&
+      {props.cards && (
         props.cards.map((card, index) => (
           <NewsCard
             key={index}
@@ -21,7 +21,8 @@ function NewsCardList(props) {
             onDelete={props.onDelete}
             onClickLink={props.onClickLink}
           />
-        ))}
+        )))
+      }
     </ul>
   );
 }
