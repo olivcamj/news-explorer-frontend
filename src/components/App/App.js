@@ -59,12 +59,12 @@ function App() {
         /^\w+([.-]?\w+)*(@)\w+([.-]?\w+)*(\.\w{2,3})+$/i
       );
 
-      setError((previous) => ({
-        ...previous,
-        email: validEmailRegexp.test(email) ? "" : "Invalid email address",
+     setError((previous) => ({
+      ...previous,
+      email: validEmailRegexp.test(email) ? "" : "Invalid email address",
       }));
     }
-
+    
     validateFields();
   }, [email]);
 
@@ -272,12 +272,12 @@ function App() {
     if (isSuccessPopupOpen) {
       setIsSuccessPopupOpen(false);
     }
+    clearInputFields();
     setIsSigninPopupOpen(true);
   }
 
   function handleSignup(e) {
     e.preventDefault();
-    clearInputFields();
     mainApi
       .register(email, name, password)
       .then(() => {
@@ -301,6 +301,7 @@ function App() {
 
   function handleSignin(e) {
     e.preventDefault();
+    
     if (!email || !password) {
       throw new Error("400 - one or more of the fields were not provided");
     }
@@ -309,6 +310,7 @@ function App() {
       .then(() => {
         setIsLoggedIn(true);
         setIsSigninPopupOpen(false);
+        clearInputFields();
       })
       .catch((err) => console.log(err.message));
   }
