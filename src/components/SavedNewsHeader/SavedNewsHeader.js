@@ -48,7 +48,7 @@ function SavedNewsHeader(props) {
 
       if (arr.length > TOP_TWO) {
         return `, and ${remainingAmount} ${moreKeywords}`;
-      } 
+      }
     }
   }
 

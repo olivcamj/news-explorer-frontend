@@ -10,7 +10,7 @@ function PopupWithForm(props) {
     }
     props.onClose();
   }
-  
+
   return (
     <div
       className={`popup ${props.isOpen ? "" : "popup_hidden"}`}

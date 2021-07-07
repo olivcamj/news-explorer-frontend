@@ -3,8 +3,8 @@ import './NewsCard.css';
 
 function NewsCard(props) {
   const [showToolTip, setShowToolTip] = useState(false);
-  
-  
+
+
   function handleClickSave() {
     props.onClickSave(props.card);
   }
@@ -26,7 +26,7 @@ function NewsCard(props) {
   function handleDelete() {
     props.onDelete(props.card);
   }
-  
+
   return (
     <div className="news-card">
       <div

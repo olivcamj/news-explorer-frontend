@@ -23,7 +23,7 @@ function SearchForm(props) {
   function handleMouseLeave() {
     setBtnColor('#2f71e5');
   }
-  
+
   return (
     <>
       <form className="search-form">
