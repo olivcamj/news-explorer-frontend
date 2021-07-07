@@ -1,7 +1,7 @@
 import React from 'react'
-import { TOP_TWO, ZERO_ITEMS, THREE_ITEMS } from "../../utils/constants.js";
+import { TOP_TWO, ZERO_ITEMS, THREE_ITEMS } from '../../utils/constants.js';
 
-import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import './SavedNewsHeader.css';
 
 function SavedNewsHeader(props) {
@@ -44,7 +44,7 @@ function SavedNewsHeader(props) {
       // Using the list of frequent keywords return the occurence of the least popular keywords
       let arr = findMostFrequentKeywords(frequentKeywordsList());
       let remainingAmount = arr.slice(TOP_TWO).length;
-      let moreKeywords = (arr.length > THREE_ITEMS) ? "others" : "other";
+      let moreKeywords = (arr.length > THREE_ITEMS) ? 'others' : 'other';
 
       if (arr.length > TOP_TWO) {
         return `, and ${remainingAmount} ${moreKeywords}`;

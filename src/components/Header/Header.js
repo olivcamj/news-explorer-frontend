@@ -7,7 +7,7 @@ function Header(props) {
   return (
     <header
       className={`header
-        ${props.location.pathname === "/saved-news" ? "header_dark" : ""}`}
+        ${props.location.pathname === '/saved-news' ? 'header_dark' : ''}`}
       role="banner"
     >
       {/* Adjust the conditional statement below when adding functionality so that it will not fail */}
@@ -15,9 +15,9 @@ function Header(props) {
         to="/"
         className={`
         ${
-          props.location.pathname === "/saved-news" && !props.isMobileMenuOpen
-            ? "header__logo_dark header__logo"
-            : "header__logo"
+          props.location.pathname === '/saved-news' && !props.isMobileMenuOpen
+            ? 'header__logo_dark header__logo'
+            : 'header__logo'
         }`}
         role="button"
         aria-pressed="false"

@@ -13,7 +13,7 @@ function PopupWithForm(props) {
 
   return (
     <div
-      className={`popup ${props.isOpen ? "" : "popup_hidden"}`}
+      className={`popup ${props.isOpen ? '' : 'popup_hidden'}`}
       onClick={handlePopupClick}
     >
       <div

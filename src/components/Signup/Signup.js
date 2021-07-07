@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
-import "./Signup.css";
+import './Signup.css';
 
 function Signup(props) {
   const [isBtnDisabled, setIsBtnDisabled] = useState(true);
@@ -21,12 +21,12 @@ function Signup(props) {
 
   useEffect(() => {
     setIsBtnDisabled(
-      props.email === "" ||
-        props.password === "" ||
-        props.name === "" ||
-        props.errors.email !== "" ||
-        props.errors.password !== "" ||
-        props.errors.result !== ""
+      props.email === '' ||
+        props.password === '' ||
+        props.name === '' ||
+        props.errors.email !== '' ||
+        props.errors.password !== '' ||
+        props.errors.result !== ''
     );
   }, [props]);
 
@@ -95,7 +95,7 @@ function Signup(props) {
         Sign up
       </button>
       <div className="popup__link-container">
-        or{" "}
+        or{' '}
         <span className="popup__link" onClick={props.onClickLink}>
           Sign In
         </span>

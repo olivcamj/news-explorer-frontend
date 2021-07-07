@@ -8,11 +8,11 @@ function Signin(props) {
 
     useEffect(() => {
       setIsBtnDisabled(
-        props.email === "" ||
-          props.password === "" ||
+        props.email === '' ||
+          props.password === '' ||
           props.password.length < minLength ||
-          props.errors.email !== "" ||
-          props.errors.password !== ""
+          props.errors.email !== '' ||
+          props.errors.password !== ''
       );
     }, [props]);
 

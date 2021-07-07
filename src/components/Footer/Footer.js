@@ -34,7 +34,7 @@ return (
             className="footer__social"
             style={{ backgroundImage: `url(${vector})` }}
           >
-            {""}
+            {''}
           </a>
         </li>
         <li className="footer__icon-link">
@@ -45,7 +45,7 @@ return (
             className="footer__social"
             style={{ backgroundImage: `url(${gitHub})` }}
           >
-            {""}
+            {''}
           </a>
         </li>
       </ul>

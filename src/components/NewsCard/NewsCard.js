@@ -33,10 +33,10 @@ function NewsCard(props) {
         className="news-card__image"
         style={{ backgroundImage: `url(${props.card.image})` }}
       ></div>
-      {props.location.pathname === "/" ? (
+      {props.location.pathname === '/' ? (
         <button
           className={`news-card__icon news-card__icon_action_save${
-            props.card.isSaved === false ? "" : "_active"
+            props.card.isSaved === false ? '' : '_active'
           }`}
           onMouseEnter={handleShowToolTip}
           onMouseLeave={handleHideToolTip}
@@ -50,20 +50,20 @@ function NewsCard(props) {
           onClick={handleDelete}
         ></button>
       )}
-      {!props.isLoggedIn && props.location.pathname === "/" && (
+      {!props.isLoggedIn && props.location.pathname === '/' && (
         <div
           className={`news-card__label news-card__label_right ${
-            showToolTip ? "" : "news-card__label_hidden"
+            showToolTip ? '' : 'news-card__label_hidden'
           }`}
           onClick={props.onClickLink}
         >
           Sign in to save articles
         </div>
       )}
-      {props.isLoggedIn && props.location.pathname === "/saved-news" && (
+      {props.isLoggedIn && props.location.pathname === '/saved-news' && (
         <div
           className={`news-card__label news-card__label_right ${
-            showToolTip ? "" : "news-card__label_hidden"
+            showToolTip ? '' : 'news-card__label_hidden'
           }`}
           onClick={handleDelete}
         >
@@ -72,9 +72,9 @@ function NewsCard(props) {
       )}
       <div
         className={`news-card__label news-card__label_tag ${
-          props.location.pathname === "/saved-news"
-            ? ""
-            : "news-card__label_hidden"
+          props.location.pathname === '/saved-news'
+            ? ''
+            : 'news-card__label_hidden'
         }`}
       >
         {props.card.keyword}

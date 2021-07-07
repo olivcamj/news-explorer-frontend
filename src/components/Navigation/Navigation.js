@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { NavLink, Link } from 'react-router-dom';
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import Logout_theme_light from '../../images/logout-black.svg';
 import Logout_theme_dark from '../../images/logout-white.svg';
 import Close from '../../images/close-icon.svg';
@@ -23,7 +23,7 @@ function Navigation(props) {
               <img
                 src={`
             ${
-              props.location.pathname === "/saved-news"
+              props.location.pathname === '/saved-news'
                 ? hamburger_dark
                 : hamburger
             }`}
@@ -42,8 +42,8 @@ function Navigation(props) {
               <ul
                 className={`nav__linkList nav__mobile ${
                   props.isMobile
-                    ? "nav__mobile-menu"
-                    : "nav__mobile-menu_hidden"
+                    ? 'nav__mobile-menu'
+                    : 'nav__mobile-menu_hidden'
                 }`}
               >
                 <li className="nav__links">
@@ -96,9 +96,9 @@ function Navigation(props) {
                 exact
                 to="/"
                 className={`${
-                  props.location.pathname === "/saved-news"
-                    ? "nav__link_dark"
-                    : "nav__link"
+                  props.location.pathname === '/saved-news'
+                    ? 'nav__link_dark'
+                    : 'nav__link'
                 }`}
                 activeClassName="nav__selected"
               >
@@ -112,9 +112,9 @@ function Navigation(props) {
                     exact
                     to="/saved-news"
                     className={` ${
-                      props.location.pathname === "/saved-news"
-                        ? "nav__link_dark"
-                        : "nav__link"
+                      props.location.pathname === '/saved-news'
+                        ? 'nav__link_dark'
+                        : 'nav__link'
                     }`}
                     activeClassName="nav__selected nav__selected_view_black nav__selected_position_saved"
                   >
@@ -125,16 +125,16 @@ function Navigation(props) {
                   <button
                     onClick={props.onSignout}
                     className={`nav__btn nav__btn_user ${
-                      props.location.pathname === "/saved-news"
-                        ? "nav__btn_theme_dark"
-                        : ""
+                      props.location.pathname === '/saved-news'
+                        ? 'nav__btn_theme_dark'
+                        : ''
                     }`}
                   >
                     <span
                       className={`nav__btn_username ${
-                        props.location.pathname === "/"
-                          ? "nav_theme_dark"
-                          : "nav_theme_light"
+                        props.location.pathname === '/'
+                          ? 'nav_theme_dark'
+                          : 'nav_theme_light'
                       }`}
                       aria-label="username"
                     >
@@ -143,7 +143,7 @@ function Navigation(props) {
                     <img
                       src={`
                         ${
-                          props.location.pathname === "/saved-news"
+                          props.location.pathname === '/saved-news'
                             ? Logout_theme_light
                             : Logout_theme_dark
                         }`}

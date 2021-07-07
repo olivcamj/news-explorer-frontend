@@ -20,7 +20,7 @@ import {
   ESC_KEYCODE,
   displayDate,
   convertDate,
-} from "../../utils/constants.js";
+} from '../../utils/constants.js';
 
 function App() {
   let location = useLocation();
@@ -34,21 +34,21 @@ function App() {
   const [isSigninPopupOpen, setIsSigninPopupOpen] = useState(false);
   const [isSignupPopupOpen, setIsSignupPopupOpen] = useState(false);
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const token = localStorage.getItem("jwt");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const token = localStorage.getItem('jwt');
   const [error, setError] = useState({
-    email: "",
-    password: "",
-    result: "",
+    email: '',
+    password: '',
+    result: '',
   });
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   //const [signinBtnDisabled, setSigninBtnDisabled] = useState(false);
   const [cards, setCards] = useState([]);
   const [savedCards, setSavedCards] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Initialize state with width undefined, so server and client renders match
   const [windowSize, setWindowSize] = useState({ width: undefined });
@@ -61,18 +61,18 @@ function App() {
 
      setError((previous) => ({
       ...previous,
-      email: validEmailRegexp.test(email) ? "" : "Invalid email address",
+      email: validEmailRegexp.test(email) ? '' : 'Invalid email address',
       }));
     }
-    
+
     validateFields();
   }, [email]);
 
   function clearInputFields() {
-    setEmail("");
-    setPassword("");
-    setName("");
-    setError({ email: "", password: "", result: "" });
+    setEmail('');
+    setPassword('');
+    setName('');
+    setError({ email: '', password: '', result: '' });
   }
 
   function closeAll() {
@@ -91,13 +91,13 @@ function App() {
         });
       }
 
-      window.addEventListener("resize", handleResize);
+      window.addEventListener('resize', handleResize);
 
       // Call handler right away so state gets updated with initial window size
       handleResize();
 
       // Remove event listener on cleanup
-      return () => window.removeEventListener("resize", handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }, []);
     return windowSize;
   }
@@ -113,8 +113,8 @@ function App() {
       }
     }
 
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -157,7 +157,7 @@ function App() {
           );
           setSavedCards(newSavedCards);
 
-          localStorage.setItem("cards", JSON.stringify(newSearchedCards));
+          localStorage.setItem('cards', JSON.stringify(newSearchedCards));
         }
       })
       .catch((err) => console.log(err));
@@ -206,20 +206,20 @@ function App() {
     const dateInput = convertDate();
     setShowSearchResults(false);
     setPreloaderVisible(true);
-   
-    if (!searchTerm || "") {
+
+    if (!searchTerm || '') {
       setPreloaderVisible(false);
-      setErrorMessage("Please enter a search term");
+      setErrorMessage('Please enter a search term');
       setShowSearchResults(true);
       return;
     } else {
-      setSearchTerm(localStorage.setItem("searchTerm", searchTerm));
+      setSearchTerm(localStorage.setItem('searchTerm', searchTerm));
       return await newsApi
         .getCardList(searchTerm, dateInput.from, dateInput.to)
         .then((response) => {
-          
+
           const { status, articles } = response;
-          if (status === "ok") {
+          if (status === 'ok') {
             const cards = articles.map((info) => {
               const cardInfo = {
                 source: info.source.name,
@@ -229,16 +229,16 @@ function App() {
                 text: info.description,
                 isSaved: false,
                 keyword: searchTerm,
-                image: info.urlToImage || "string",
+                image: info.urlToImage || 'string',
               };
-              
+
               if (savedCards.length > 0) {
-                
+
                 const [isSaved, id] = isSearchedArticleSaved(
                   cardInfo,
                   savedCards
                 );
-        
+
                 if (isSaved) {
                   cardInfo.isSaved = true;
                   cardInfo._id = id;
@@ -249,7 +249,7 @@ function App() {
             setCards(cards);
             setShowSearchResults(true);
             setPreloaderVisible(false);
-            localStorage.setItem("cards", JSON.stringify(cards));
+            localStorage.setItem('cards', JSON.stringify(cards));
           } else {
             throw new Error(uncaughtErrorMessage);
           }
@@ -257,7 +257,7 @@ function App() {
         .catch((err) => {
           console.log(err);
           setPreloaderVisible(false);
-          setErrorMessage("");
+          setErrorMessage('');
         });
     }
   }
@@ -301,9 +301,9 @@ function App() {
 
   function handleSignin(e) {
     e.preventDefault();
-    
+
     if (!email || !password) {
-      throw new Error("400 - one or more of the fields were not provided");
+      throw new Error('400 - one or more of the fields were not provided');
     }
     mainApi
       .authorize(email, password)
@@ -334,30 +334,30 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem(searchTerm)) {
-      setSearchTerm(localStorage.getItem("searchTerm"));
+      setSearchTerm(localStorage.getItem('searchTerm'));
     }
-    if (localStorage.getItem("cards")) {
-      setCards(JSON.parse(localStorage.getItem("cards")));
+    if (localStorage.getItem('cards')) {
+      setCards(JSON.parse(localStorage.getItem('cards')));
     }
   }, [searchTerm]);
-  
+
   // Clear results when moving to the saved
   useEffect(() => {
-    if (location.pathname === "/saved-news") {
+    if (location.pathname === '/saved-news') {
       setShowSearchResults(false);
-      if (localStorage.getItem("searchTerm")) {
-      setSearchTerm(localStorage.removeItem("searchTerm"));
+      if (localStorage.getItem('searchTerm')) {
+      setSearchTerm(localStorage.removeItem('searchTerm'));
     }
   }}, [location.pathname]);
 
   function handleSignout(e) {
     e.preventDefault();
     localStorage.clear();
-    setSavedCards("");
+    setSavedCards('');
     setIsLoggedIn(false);
     setCurrentUser({});
     setShowSearchResults(false);
-    history.push("/");
+    history.push('/');
   }
 
   return (
@@ -374,7 +374,7 @@ function App() {
           onClickSignin={handleSigninBtn}
         />
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
             <Main
               location={location}
               isLoggedIn={isLoggedIn}
@@ -419,14 +419,14 @@ function App() {
           </Route>
           <ProtectedRoute
             exact
-            path="/saved-news"
+            path='/saved-news'
             component={SavedNews}
             isLoggedIn={isLoggedIn}
             location={location}
             cards={savedCards}
             onDelete={handleDeleteCard}
           />
-          <Redirect from="*" to="/" />
+          <Redirect from='*' to='/' />
         </Switch>
       </CurrentUserContext.Provider>
       <Footer />
