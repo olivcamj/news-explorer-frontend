@@ -64,9 +64,8 @@ function App() {
         email: validEmailRegexp.test(email) ? "" : "Invalid email address",
       }));
     }
-    return () => {
-      validateFields();
-    };
+
+    validateFields();
   }, [email]);
 
   function clearInputFields() {
