@@ -26,7 +26,7 @@ function Signup(props) {
         props.name === '' ||
         props.errors.email !== '' ||
         props.errors.password !== '' ||
-        props.errors.result !== ''
+        props.errors.result !== '',
     );
   }, [props]);
 

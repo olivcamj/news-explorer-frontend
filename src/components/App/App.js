@@ -56,7 +56,7 @@ function App() {
   useEffect(() => {
     function validateFields() {
       const validEmailRegexp = RegExp(
-        /^\w+([.-]?\w+)*(@)\w+([.-]?\w+)*(\.\w{2,3})+$/i
+        /^\w+([.-]?\w+)*(@)\w+([.-]?\w+)*(\.\w{2,3})+$/i,
       );
 
      setError((previous) => ({
@@ -129,7 +129,7 @@ function App() {
             return item
               ? { ...item, _id: item._id, date: displayDate(item.date) }
               : null;
-          })
+          }),
         );
       })
       .catch((err) => {
@@ -153,7 +153,7 @@ function App() {
           setCards(newSearchedCards);
 
           const newSavedCards = savedCards.filter(
-            (savedCard) => savedCard._id !== card._id
+            (savedCard) => savedCard._id !== card._id,
           );
           setSavedCards(newSavedCards);
 
@@ -181,7 +181,7 @@ function App() {
                     _id: article._id,
                   }
                 : item;
-            })
+            }),
           );
 
           setSavedCards([...savedCards, retrieveSavedCards(token)]);
@@ -236,7 +236,7 @@ function App() {
 
                 const [isSaved, id] = isSearchedArticleSaved(
                   cardInfo,
-                  savedCards
+                  savedCards,
                 );
 
                 if (isSaved) {

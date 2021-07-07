@@ -12,7 +12,7 @@ function Signin(props) {
           props.password === '' ||
           props.password.length < minLength ||
           props.errors.email !== '' ||
-          props.errors.password !== ''
+          props.errors.password !== '',
       );
     }, [props]);
 
