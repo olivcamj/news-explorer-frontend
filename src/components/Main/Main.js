@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import './Main.css';
-import SearchForm from '../SearchForm/SearchForm.js';
-import Preloader from '../Preloader/Preloader.js';
-import SearchResults from '../SearchResults/SearchResults.js';
+import SearchForm from '../SearchForm/SearchForm';
+import Preloader from '../Preloader/Preloader';
+import SearchResults from '../SearchResults/SearchResults';
 
 function Main(props) {
   return (
