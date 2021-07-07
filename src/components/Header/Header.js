@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from '../Navigation/Navigation.js';
+import Navigation from '../Navigation/Navigation';
 import './Header.css';
 
 function Header(props) {
@@ -10,7 +10,8 @@ function Header(props) {
         ${props.location.pathname === '/saved-news' ? 'header_dark' : ''}`}
       role="banner"
     >
-      {/* Adjust the conditional statement below when adding functionality so that it will not fail */}
+      {/* Adjust the conditional statement below
+        * when adding functionality so that it will not fail */}
       <Link
         to="/"
         className={`
