@@ -4,7 +4,6 @@ import './NewsCard.css';
 function NewsCard(props) {
   const [showToolTip, setShowToolTip] = useState(false);
 
-
   function handleClickSave() {
     props.onClickSave(props.card);
   }
@@ -18,7 +17,7 @@ function NewsCard(props) {
   }
 
   function handleHideToolTip() {
-    setTimeout(function() {
+    setTimeout(() => {
       setShowToolTip(false);
     }, 4000);
   }
