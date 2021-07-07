@@ -4,7 +4,7 @@ import './Signin.css';
 
 function Signin(props) {
   const [isBtnDisabled, setIsBtnDisabled] = useState(true);
-  const minLength = 2;
+  const minLength = 8;
 
     useEffect(() => {
       setIsBtnDisabled(
