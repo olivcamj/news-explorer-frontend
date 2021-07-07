@@ -1,10 +1,9 @@
-import React from 'react'
-import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader.js';
-import NewsCardList from '../NewsCardList/NewsCardList.js';
+import React from 'react';
+import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
+import NewsCardList from '../NewsCardList/NewsCardList';
 import './SavedNews.css';
 
 function SavedNews(props) {
-
   return (
     <>
       <SavedNewsHeader

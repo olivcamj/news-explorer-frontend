@@ -1,7 +1,7 @@
 import React from 'react'
-import { TOP_TWO, ZERO_ITEMS, THREE_ITEMS } from '../../utils/constants.js';
+import { TOP_TWO, ZERO_ITEMS, THREE_ITEMS } from '../../utils/constants';
 
-import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './SavedNewsHeader.css';
 
 function SavedNewsHeader(props) {

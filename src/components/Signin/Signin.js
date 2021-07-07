@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import './Signin.css';
 
 function Signin(props) {

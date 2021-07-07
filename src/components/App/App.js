@@ -1,26 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import { Switch, Route, useLocation, useHistory, Redirect } from 'react-router-dom';
-import Header from '../Header/Header.js';
-import Main from '../Main/Main.js';
-import About from '../About/About.js';
-import Signin from '../Signin/Signin.js';
-import Signup from '../Signup/Signup.js';
-import SavedNews from '../SavedNews/SavedNews.js';
-import Footer from '../Footer/Footer.js';
-import Success from '../Success/Success.js';
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
+import Header from '../Header/Header';
+import Main from '../Main/Main';
+import About from '../About/About';
+import Signin from '../Signin/Signin';
+import Signup from '../Signup/Signup';
+import SavedNews from '../SavedNews/SavedNews';
+import Footer from '../Footer/Footer';
+import Success from '../Success/Success';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import './App.css';
 
-import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
-import newsApi from '../../utils/NewsApi.js';
-import  mainApi  from '../../utils/MainApi.js';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import newsApi from '../../utils/NewsApi';
+import mainApi from '../../utils/MainApi';
 import {
   uncaughtErrorMessage,
   MOBILE_WINDOW_SIZE,
   ESC_KEYCODE,
   displayDate,
   convertDate,
-} from '../../utils/constants.js';
+} from '../../utils/constants';
 
 function App() {
   let location = useLocation();

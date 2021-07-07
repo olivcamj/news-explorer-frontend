@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NotFound from '../NotFound/NotFound.js';
-import NewsCardList from '../NewsCardList/NewsCardList.js';
+import NotFound from '../NotFound/NotFound';
+import NewsCardList from '../NewsCardList/NewsCardList';
 import './SearchResults.css';
 
 function SearchResults(props) {
