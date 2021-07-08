@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import './Success.css';
 import '../Signin/Signin';
