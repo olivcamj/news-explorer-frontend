@@ -7,7 +7,6 @@ function Signup(props) {
 
   const handleEmail = (e) => {
     props.setEmail(e.target.value);
-
   };
 
   const handlePassword = (e) => {
@@ -16,17 +15,16 @@ function Signup(props) {
 
   const handleName = (e) => {
     props.setName(e.target.value);
-
   };
 
   useEffect(() => {
     setIsBtnDisabled(
-      props.email === '' ||
-        props.password === '' ||
-        props.name === '' ||
-        props.errors.email !== '' ||
-        props.errors.password !== '' ||
-        props.errors.result !== '',
+      props.email === ''
+      || props.password === ''
+      || props.name === ''
+      || props.errors.email !== ''
+      || props.errors.password !== ''
+      || props.errors.result !== '',
     );
   }, [props]);
 
