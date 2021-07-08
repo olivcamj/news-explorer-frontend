@@ -12,6 +12,7 @@ function SearchResults(props) {
   function handleClickShowMore() {
     setItemsToShow(itemsToShow);
     if (itemsToShow < props.cards.length) {
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < props.cards.length; i++) {
         setItemsToShow(itemsToShow + showThreeAdditionalItems);
         setExpanded(true);
@@ -19,7 +20,6 @@ function SearchResults(props) {
     }
     setExpanded(false);
   }
-
 
   return props.cards.length === 0 || props.errorMessage !== '' ? (
     <NotFound errorMessage={props.errorMessage} />
@@ -38,7 +38,7 @@ function SearchResults(props) {
 
       <button
         className={`search-results__btn${
-         expanded === false && props.cards.length > itemsToShow
+          expanded === false && props.cards.length > itemsToShow
             ? ''
             : '_hidden'
         }`}
