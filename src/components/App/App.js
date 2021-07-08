@@ -1,5 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import { Switch, Route, useLocation, useHistory, Redirect } from 'react-router-dom';
+/* eslint-disable no-shadow */
+/* eslint-disable no-param-reassign */
+import React, { useState, useEffect } from 'react';
+import {
+  Switch, Route, useLocation, useHistory, Redirect,
+} from 'react-router-dom';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import About from '../About/About';
@@ -23,8 +27,8 @@ import {
 } from '../../utils/constants';
 
 function App() {
-  let location = useLocation();
-  let history = useHistory();
+  const location = useLocation();
+  const history = useHistory();
 
   const [preloaderVisible, setPreloaderVisible] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);
@@ -44,7 +48,7 @@ function App() {
     result: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
-  //const [signinBtnDisabled, setSigninBtnDisabled] = useState(false);
+  // const [signinBtnDisabled, setSigninBtnDisabled] = useState(false);
   const [cards, setCards] = useState([]);
   const [savedCards, setSavedCards] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
@@ -59,9 +63,9 @@ function App() {
         /^\w+([.-]?\w+)*(@)\w+([.-]?\w+)*(\.\w{2,3})+$/i,
       );
 
-     setError((previous) => ({
-      ...previous,
-      email: validEmailRegexp.test(email) ? '' : 'Invalid email address',
+      setError((previous) => ({
+        ...previous,
+        email: validEmailRegexp.test(email) ? '' : 'Invalid email address',
       }));
     }
 
@@ -102,8 +106,8 @@ function App() {
     return windowSize;
   }
 
-  let size = useWindowSize();
-  let isMobile = size.width <= MOBILE_WINDOW_SIZE;
+  const size = useWindowSize();
+  const isMobile = size.width <= MOBILE_WINDOW_SIZE;
 
   useEffect(() => {
     function close(e) {
@@ -115,21 +119,19 @@ function App() {
 
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
 
+  // eslint-disable-next-line no-shadow
   function retrieveSavedCards(token) {
     mainApi
       .getSavedArticles(token)
       .then((response) => {
         // format the date for every card added to saved articles
-        //const addCard = () => response.map((item) => item ? { ...item,  date: displayDate(item.date)} : null);
         setSavedCards(
-          response.map((item) => {
-            return item
-              ? { ...item, _id: item._id, date: displayDate(item.date) }
-              : null;
-          }),
+          response.map((item) => (item
+            ? { ...item, _id: item._id, date: displayDate(item.date) }
+            : null)),
         );
       })
       .catch((err) => {
@@ -137,8 +139,8 @@ function App() {
       });
   }
 
- async function handleDeleteCard(card) {
-  await mainApi
+  async function handleDeleteCard(card) {
+    await mainApi
       .deleteArticle(card._id, token)
       .then((res) => {
         if (res) {
@@ -164,24 +166,20 @@ function App() {
   }
 
   function handleClickSave(article) {
-    if (!isLoggedIn) {
+    if (isLoggedIn) {
       // can't save a card if not logged in
-      return;
-    } else {
       mainApi
         .saveArticle(article, token)
         .then((response) => {
           setCards(
-            cards.map((item) => {
-              return item.link === article.link
-                ? {
-                    ...item,
-                    isSaved: !article.saved,
-                    date: displayDate(item.date),
-                    _id: article._id,
-                  }
-                : item;
-            }),
+            cards.map((item) => (item.link === article.link
+              ? {
+                ...item,
+                isSaved: !article.saved,
+                date: displayDate(item.date),
+                _id: article._id,
+              }
+              : item)),
           );
 
           setSavedCards([...savedCards, retrieveSavedCards(token)]);
@@ -202,6 +200,7 @@ function App() {
     return [isSaved, id];
   }
 
+  // eslint-disable-next-line consistent-return
   async function handleClickSearch(searchTerm) {
     const dateInput = convertDate();
     setShowSearchResults(false);
@@ -211,13 +210,12 @@ function App() {
       setPreloaderVisible(false);
       setErrorMessage('Please enter a search term');
       setShowSearchResults(true);
-      return;
     } else {
       setSearchTerm(localStorage.setItem('searchTerm', searchTerm));
+      // eslint-disable-next-line no-return-await
       return await newsApi
         .getCardList(searchTerm, dateInput.from, dateInput.to)
         .then((response) => {
-
           const { status, articles } = response;
           if (status === 'ok') {
             const cards = articles.map((info) => {
@@ -233,7 +231,6 @@ function App() {
               };
 
               if (savedCards.length > 0) {
-
                 const [isSaved, id] = isSearchedArticleSaved(
                   cardInfo,
                   savedCards,
@@ -320,7 +317,6 @@ function App() {
       mainApi
         .getUser(token)
         .then((response) => {
-          //setIsLoggedIn(true);
           setCurrentUser(response);
           retrieveSavedCards(token);
         })
@@ -346,9 +342,10 @@ function App() {
     if (location.pathname === '/saved-news') {
       setShowSearchResults(false);
       if (localStorage.getItem('searchTerm')) {
-      setSearchTerm(localStorage.removeItem('searchTerm'));
+        setSearchTerm(localStorage.removeItem('searchTerm'));
+      }
     }
-  }}, [location.pathname]);
+  }, [location.pathname]);
 
   function handleSignout(e) {
     e.preventDefault();
