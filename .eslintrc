@@ -1,4 +1,10 @@
 {
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "react"
+  ],
   "extends": "airbnb-base",
   "parserOptions": {
     "ecmaFeatures": {
@@ -9,7 +15,9 @@
       "error",
       {
         "allow": [
-          "_id"
+          "_id",
+          "_baseUrl",
+          "_apiKey"
         ],
         "allowAfterThis": true
       }
