@@ -14,11 +14,11 @@ function displayDate(date) {
 }
 
 function convertDate() {
-  let date = new Date();
+  const date = new Date();
   // expected example output: current date without 1. day of the week or time
-  let to = date.toISOString().slice(0, 10);
+  const to = date.toISOString().slice(0, 10);
   // calculate a date 7 days ago then return a string
-  let from = date.toJSON(date.setDate(date.getDate() - 7)).slice(0, 10);
+  const from = date.toJSON(date.setDate(date.getDate() - 7)).slice(0, 10);
   return { to, from };
 }
 
