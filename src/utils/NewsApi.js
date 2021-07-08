@@ -5,17 +5,15 @@ class NewsApi {
   }
 
   async getCardList(request, from, to) {
-    return await fetch(
-      `${this._baseUrl}?language=en&q=${request}&from=${from}&to=${to}&pageSize=100&sortBy=popularity&apiKey=${this._apiKey}`,
+    // eslint-disable-next-line no-undef
+    return fetch(`${this._baseUrl}?language=en&q=${request}&from=${from}&to=${to}&pageSize=100&sortBy=popularity&apiKey=${this._apiKey}`,
       {
         headers: {
           authorization: `Bearer ${this._apiKey}`,
         },
-      }
-    )
-    .then((res) =>
-      res.ok ? res.json() : Promise.reject(`Error! ${res.statusText}`)
-    )
+      })
+      // eslint-disable-next-line prefer-promise-reject-errors
+      .then((res) => (res.ok ? res.json() : Promise.reject(`Error! ${res.statusText}`)));
   }
 }
 
