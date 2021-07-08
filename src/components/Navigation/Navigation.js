@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 import { NavLink, Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import Logout_theme_light from '../../images/logout-black.svg';
-import Logout_theme_dark from '../../images/logout-white.svg';
+import LogoutThemeLight from '../../images/logout-black.svg';
+import LogoutThemeDark from '../../images/logout-white.svg';
 import Close from '../../images/close-icon.svg';
-import './Navigation.css'
+import './Navigation.css';
 
 import hamburger from '../../images/hamburger.svg';
-import hamburger_dark from '../../images/hamburger-dark.svg';
+import hamburgerDark from '../../images/hamburger-dark.svg';
 
 function Navigation(props) {
   const handleMobileMenuDisplay = () => props.setIsMobileMenuOpen(!props.isMobileMenuOpen);
@@ -24,7 +24,7 @@ function Navigation(props) {
                 src={`
             ${
               props.location.pathname === '/saved-news'
-                ? hamburger_dark
+                ? hamburgerDark
                 : hamburger
             }`}
                 alt="menu icon"
@@ -72,7 +72,7 @@ function Navigation(props) {
                         {currentUser && currentUser.name}
                       </span>
                       <img
-                        src={Logout_theme_dark}
+                        src={LogoutThemeDark}
                         className="nav__signout"
                         alt="signout icon"
                         focusable="false"
@@ -144,8 +144,8 @@ function Navigation(props) {
                       src={`
                         ${
                           props.location.pathname === '/saved-news'
-                            ? Logout_theme_light
-                            : Logout_theme_dark
+                            ? LogoutThemeLight
+                            : LogoutThemeDark
                         }`}
                       className="nav__signout"
                       alt="signout icon"
