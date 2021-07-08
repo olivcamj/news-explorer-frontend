@@ -6,23 +6,23 @@ function Signin(props) {
   const [isBtnDisabled, setIsBtnDisabled] = useState(true);
   const minLength = 8;
 
-    useEffect(() => {
-      setIsBtnDisabled(
-        props.email === '' ||
-          props.password === '' ||
-          props.password.length < minLength ||
-          props.errors.email !== '' ||
-          props.errors.password !== '',
-      );
-    }, [props]);
+  useEffect(() => {
+    setIsBtnDisabled(
+      props.email === ''
+      || props.password === ''
+      || props.password.length < minLength
+      || props.errors.email !== ''
+      || props.errors.password !== '',
+    );
+  }, [props]);
 
-   const handleEmail = (e) => {
-     props.setEmail(e.target.value);
-   };
+  const handleEmail = (e) => {
+    props.setEmail(e.target.value);
+  };
 
-   const handlePassword = (e) => {
-     props.setPassword(e.target.value);
-   };
+  const handlePassword = (e) => {
+    props.setPassword(e.target.value);
+  };
 
   return (
     <PopupWithForm
