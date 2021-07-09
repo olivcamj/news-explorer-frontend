@@ -63,14 +63,22 @@ function App() {
         /^\w+([.-]?\w+)*(@)\w+([.-]?\w+)*(\.\w{2,3})+$/i,
       );
 
+      const validPasswordRegexp = RegExp(
+        /\w{8}/i,
+      );
+
       setError((previous) => ({
         ...previous,
-        email: validEmailRegexp.test(email) ? '' : 'Invalid email address',
+        email: validEmailRegexp.test(email) || !email
+          ? ''
+          : 'Invalid email address',
+        password: validPasswordRegexp.test(password) || !password
+          ? ''
+          : 'Password must have 8 characters',
       }));
     }
-
     validateFields();
-  }, [email]);
+  }, [email, password]);
 
   function clearInputFields() {
     setEmail('');
