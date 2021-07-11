@@ -176,23 +176,34 @@ function App() {
   function handleClickSave(article) {
     if (isLoggedIn) {
       // can't save a card if not logged in
-      mainApi
-        .saveArticle(article, token)
-        .then((response) => {
-          setCards(
-            cards.map((item) => (item.link === article.link
-              ? {
-                ...item,
-                isSaved: !article.saved,
-                date: displayDate(item.date),
-                _id: article._id,
-              }
-              : item)),
-          );
+      if (article.isSaved) {
+        // eslint-disable-next-line array-callback-return
+        // eslint-disable-next-line consistent-return
+        savedCards.filter((items) => {
+          if (items.link === article.link) {
+            handleDeleteCard(items);
+          }
+          return article;
+        });
+      } else {
+        mainApi
+          .saveArticle(article, token)
+          .then((response) => {
+            setCards(
+              cards.map((item) => (item.link === article.link
+                ? {
+                  ...item,
+                  isSaved: !article.saved,
+                  date: displayDate(item.date),
+                  _id: article._id,
+                }
+                : item)),
+            );
 
-          setSavedCards([...savedCards, retrieveSavedCards(token)]);
-        })
-        .catch((err) => console.log(err));
+            setSavedCards([...savedCards, retrieveSavedCards(token)]);
+          })
+          .catch((err) => console.log(err));
+      }
     }
   }
 
@@ -379,7 +390,7 @@ function App() {
           onClickSignin={handleSigninBtn}
         />
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <Main
               location={location}
               isLoggedIn={isLoggedIn}
@@ -387,9 +398,10 @@ function App() {
               preloaderVisible={preloaderVisible}
               showSearchResults={showSearchResults}
               cards={cards}
-              onClickSave= {handleClickSave}
-              onClickLink={handleSignupPopup}
+              onClickSave={handleClickSave}
+              onClickLink={handleSigninPopup}
               errorMessage={errorMessage}
+              onDelete={handleDeleteCard}
             />
             <About />
             <Signin
@@ -424,14 +436,14 @@ function App() {
           </Route>
           <ProtectedRoute
             exact
-            path='/saved-news'
+            path="/saved-news"
             component={SavedNews}
             isLoggedIn={isLoggedIn}
             location={location}
             cards={savedCards}
             onDelete={handleDeleteCard}
           />
-          <Redirect from='*' to='/' />
+          <Redirect from="*" to="/" />
         </Switch>
       </CurrentUserContext.Provider>
       <Footer />
