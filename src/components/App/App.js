@@ -154,7 +154,7 @@ function App() {
         if (res) {
           const newSearchedCards = cards.map((searchedCard) => {
             if (searchedCard.link === card.link) {
-              delete searchedCard.isSaved;
+              searchedCard.isSaved = false;
               delete searchedCard._id;
             }
             return searchedCard;
