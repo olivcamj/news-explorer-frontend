@@ -67,6 +67,9 @@ function Signin(props) {
           {props.errors.password}
         </span>
       </label>
+      <p className="popup__input-error popup__input-error_centered">
+        {props.errors.result}
+      </p>
       <button
         className="popup__btn popup__btn_type_signin"
         aria-label="Sign in"

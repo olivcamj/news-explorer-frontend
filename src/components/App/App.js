@@ -296,9 +296,16 @@ function App() {
     e.preventDefault();
     mainApi
       .register(email, name, password)
-      .then(() => {
-        handleSuccessPopup();
-        clearInputFields();
+      .then((res) => {
+        if (res) {
+          handleSuccessPopup();
+          clearInputFields();
+        } else {
+          setError((previous) => ({
+            ...previous,
+            result: 'This email address is not available',
+          }));
+        }
       })
       .catch((err) => console.log(err));
   }
@@ -323,10 +330,18 @@ function App() {
     }
     mainApi
       .authorize(email, password)
-      .then(() => {
-        setIsLoggedIn(true);
-        setIsSigninPopupOpen(false);
-        clearInputFields();
+      .then((res) => {
+        if (res.message) {
+          setError((err) => ({
+            ...err,
+            result: res.message,
+          }));
+          throw new Error('401 - one or more of the fields were not a match');
+        } else {
+          setIsLoggedIn(true);
+          setIsSigninPopupOpen(false);
+          clearInputFields();
+        }
       })
       .catch((err) => console.log(err.message));
   }
