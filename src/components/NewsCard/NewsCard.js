@@ -9,11 +9,7 @@ function NewsCard(props) {
   }
 
   function handleShowToolTip() {
-    if (!props.isLoggedIn) {
-      setShowToolTip(true);
-    } else {
-      setShowToolTip(false);
-    }
+    setShowToolTip(true);
   }
 
   function handleHideToolTip() {
@@ -50,6 +46,7 @@ function NewsCard(props) {
         ></button>
       )}
       {!props.isLoggedIn && props.location.pathname === '/' && (
+        <>
         <div
           className={`news-card__label news-card__label_right ${
             showToolTip ? '' : 'news-card__label_hidden'
@@ -58,10 +55,17 @@ function NewsCard(props) {
         >
           Sign in to save articles
         </div>
+        <button
+          className="news-card__icon news-card__icon_action_save"
+          onMouseEnter={handleShowToolTip}
+          onMouseLeave={handleHideToolTip}
+          onClick={props.onClickLink}
+        ></button>
+        </>
       )}
       {props.isLoggedIn && props.location.pathname === '/saved-news' && (
         <div
-          className={`news-card__label news-card__label_right ${
+          className={`news-card__label news-card__label_delete ${
             showToolTip ? '' : 'news-card__label_hidden'
           }`}
           onClick={handleDelete}
