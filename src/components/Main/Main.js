@@ -30,6 +30,7 @@ function Main(props) {
           onClickSave={props.onClickSave}
           onClickLink={props.onClickLink}
           errorMessage={props.errorMessage}
+          onDelete={props.onDelete}
         />
       )}
     </main>
