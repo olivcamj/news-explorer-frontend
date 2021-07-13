@@ -142,6 +142,12 @@
   color: #ff0000;
 }
 
+.popup__input-error_centered {
+  text-align: center;
+  margin: 0;
+  padding: 17px 0 8px;
+}
+
 .popup__link-container {
   width: 226px;
   height: 20px;
@@ -154,13 +160,13 @@
   letter-spacing: 0em;
   text-align: center;
 }
-  
+
 .popup__link {
   margin: 5px;
   color: #2f71e5;
   cursor: pointer;
 }
-  
+
 .popup__link:visited {
   color: var(--light);
 }
@@ -247,7 +253,7 @@
   .popup__btn {
     width: 358px;
     height: 64px;
-    margin: 23px auto;
+    margin: 0 auto 23px;
     display: block;
   }
 }
@@ -296,6 +302,10 @@
   }
 
   .popup__input {
-      margin-bottom: 31px;
+    margin-bottom: 31px;
+  }
+
+  .popup__input:last-child {
+    margin-bottom: 0;
   }
 }

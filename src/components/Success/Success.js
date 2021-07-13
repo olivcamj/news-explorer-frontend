@@ -1,6 +1,7 @@
-import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
+import React from 'react';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import './Success.css';
-import '../Signin/Signin.js';
+import '../Signin/Signin';
 
 function Success(props) {
   return (

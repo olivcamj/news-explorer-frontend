@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import './PopupWithForm.css';
 
 function PopupWithForm(props) {
@@ -10,10 +10,10 @@ function PopupWithForm(props) {
     }
     props.onClose();
   }
-  
+
   return (
     <div
-      className={`popup ${props.isOpen ? "" : "popup_hidden"}`}
+      className={`popup ${props.isOpen ? '' : 'popup_hidden'}`}
       onClick={handlePopupClick}
     >
       <div

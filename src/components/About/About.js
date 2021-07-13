@@ -1,3 +1,4 @@
+import React from 'react';
 import './About.css';
 import avatar from '../../images/avatar.png';
 
@@ -12,7 +13,7 @@ function About() {
         <div className="about__text">
           <p>
             Olivia is an aspiring web developer. She completed Practicum by
-            Yandex program in May 2021. The program explored HTML, CSS, JS,
+            Yandex program in June 2021. The program explored HTML, CSS, JS,
             React and NodeJS (paired with Express & Mongbd).
           </p>
           <p>

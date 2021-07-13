@@ -1,28 +1,28 @@
-import { useState, useEffect } from 'react';
-import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
+import React, { useState, useEffect } from 'react';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import './Signin.css';
 
 function Signin(props) {
   const [isBtnDisabled, setIsBtnDisabled] = useState(true);
-  const minLength = 2;
+  const minLength = 8;
 
-    useEffect(() => {
-      setIsBtnDisabled(
-        props.email === "" ||
-          props.password === "" ||
-          props.password.length < minLength ||
-          props.errors.email !== "" ||
-          props.errors.password !== ""
-      );
-    }, [props]);
+  useEffect(() => {
+    setIsBtnDisabled(
+      props.email === ''
+      || props.password === ''
+      || props.password.length < minLength
+      || props.errors.email !== ''
+      || props.errors.password !== '',
+    );
+  }, [props]);
 
-   const handleEmail = (e) => {
-     props.setEmail(e.target.value);
-   };
+  const handleEmail = (e) => {
+    props.setEmail(e.target.value);
+  };
 
-   const handlePassword = (e) => {
-     props.setPassword(e.target.value);
-   };
+  const handlePassword = (e) => {
+    props.setPassword(e.target.value);
+  };
 
   return (
     <PopupWithForm
@@ -60,13 +60,16 @@ function Signin(props) {
           className="popup__input"
           placeholder="Enter Password"
           required
-          minLength={2}
+          minLength={8}
           maxLength={200}
         />
         <span className="popup__input-error popup__input-error_position_centered">
           {props.errors.password}
         </span>
       </label>
+      <p className="popup__input-error popup__input-error_centered">
+        {props.errors.result}
+      </p>
       <button
         className="popup__btn popup__btn_type_signin"
         aria-label="Sign in"

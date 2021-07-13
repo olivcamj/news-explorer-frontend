@@ -1,13 +1,12 @@
-import { useState, useEffect } from 'react';
-import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
-import "./Signup.css";
+import React, { useState, useEffect } from 'react';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import './Signup.css';
 
 function Signup(props) {
   const [isBtnDisabled, setIsBtnDisabled] = useState(true);
 
   const handleEmail = (e) => {
     props.setEmail(e.target.value);
-    
   };
 
   const handlePassword = (e) => {
@@ -16,17 +15,16 @@ function Signup(props) {
 
   const handleName = (e) => {
     props.setName(e.target.value);
-   
   };
 
   useEffect(() => {
     setIsBtnDisabled(
-      props.email === "" ||
-        props.password === "" ||
-        props.name === "" ||
-        props.errors.email !== "" ||
-        props.errors.password !== "" ||
-        props.errors.result !== ""
+      props.email === ''
+      || props.password === ''
+      || props.name === ''
+      || props.errors.email !== ''
+      || props.errors.password !== ''
+      || props.errors.result !== '',
     );
   }, [props]);
 
@@ -63,7 +61,7 @@ function Signup(props) {
           value={props.password}
           onChange={handlePassword}
           required
-          minLength={2}
+          minLength={8}
           maxLength={200}
         />
         <span className="popup__input-error">{props.errors.password}</span>
@@ -95,7 +93,7 @@ function Signup(props) {
         Sign up
       </button>
       <div className="popup__link-container">
-        or{" "}
+        or{' '}
         <span className="popup__link" onClick={props.onClickLink}>
           Sign In
         </span>
