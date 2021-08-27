@@ -8,3 +8,4 @@ When a user enters a keyword in the search bar, the website sends a request to [
 - Markup and JSX
 - React and JS Functionality
 - Front-End Authentication with React
+- Link to seperate Backend [code](https://github.com/olivcamj/news-explorer-api) 
