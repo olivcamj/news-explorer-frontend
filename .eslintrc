@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },"rules": {
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_id",
+          "_baseUrl",
+          "_apiKey"
+        ],
+        "allowAfterThis": true
+      }
+    ],
+    "no-unused-vars": "off",
+    "no-console": "off"
+  }
+}
