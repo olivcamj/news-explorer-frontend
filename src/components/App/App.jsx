@@ -401,7 +401,6 @@ function App() {
     <>
       <CurrentUserContext.Provider value={currentUser}>
         <Header
-          location={location}
           isLoggedIn={isLoggedIn}
           isMobile={isMobile}
           isMobileMenuOpen={isMobileMenuOpen}
@@ -416,7 +415,6 @@ function App() {
             element={
               <>
                 <Main
-                  location={location}
                   isLoggedIn={isLoggedIn}
                   onClickSearch={handleClickSearch}
                   preloaderVisible={preloaderVisible}
@@ -464,11 +462,7 @@ function App() {
             path="/saved-news"
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <SavedNews
-                  location={location}
-                  cards={savedCards}
-                  onDelete={handleDeleteCard}
-                />
+                <SavedNews cards={savedCards} onDelete={handleDeleteCard} />
               </ProtectedRoute>
             }
           />

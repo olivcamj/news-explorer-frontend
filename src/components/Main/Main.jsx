@@ -1,9 +1,9 @@
-import React from 'react';
-import './Main.css';
-import SearchForm from '../SearchForm/SearchForm';
-import Preloader from '../Preloader/Preloader';
-import SearchResults from '../SearchResults/SearchResults';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import React from "react";
+import "./Main.css";
+import SearchForm from "../SearchForm/SearchForm";
+import Preloader from "../Preloader/Preloader";
+import SearchResults from "../SearchResults/SearchResults";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -24,7 +24,6 @@ function Main(props) {
       {props.showSearchResults && (
         <SearchResults
           currentUser={currentUser}
-          location={props.location}
           isLoggedIn={props.isLoggedIn}
           cards={props.cards}
           onClickSave={props.onClickSave}

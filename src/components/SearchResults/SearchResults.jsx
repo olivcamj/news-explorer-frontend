@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import NotFound from '../NotFound/NotFound';
-import NewsCardList from '../NewsCardList/NewsCardList';
-import './SearchResults.css';
+import React, { useState } from "react";
+import NotFound from "../NotFound/NotFound";
+import NewsCardList from "../NewsCardList/NewsCardList";
+import "./SearchResults.css";
 
 function SearchResults(props) {
   const [itemsToShow, setItemsToShow] = useState(3);
@@ -21,7 +21,7 @@ function SearchResults(props) {
     setExpanded(false);
   }
 
-  return props.cards.length === 0 || props.errorMessage !== '' ? (
+  return props.cards.length === 0 || props.errorMessage !== "" ? (
     <NotFound errorMessage={props.errorMessage} />
   ) : (
     <div className="search-results">
@@ -30,7 +30,6 @@ function SearchResults(props) {
       <NewsCardList
         cards={props.cards.slice(0, itemsToShow)}
         onClickSave={props.onClickSave}
-        location={props.location}
         onDelete={props.onDelete}
         onClickLink={props.onClickLink}
         isLoggedIn={props.isLoggedIn}
@@ -39,8 +38,8 @@ function SearchResults(props) {
       <button
         className={`search-results__btn${
           expanded === false && props.cards.length > itemsToShow
-            ? ''
-            : '_hidden'
+            ? ""
+            : "_hidden"
         }`}
         onClick={handleClickShowMore}
       >
