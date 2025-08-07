@@ -1,14 +1,9 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React from "react";
+import { Navigate } from "react-router-dom";
 
 // This component can take a component as a prop
 
-const ProtectedRoute = ({ component: Component, ...props }) => (
-  <Route>
-    {
-      () => (props.isLoggedIn ? <Component {...props} /> : <Redirect to="/" />)
-    }
-  </Route>
-);
+const ProtectedRoute = ({ children, isLoggedIn }) =>
+  isLoggedIn ? children : <Navigate to="/" replace />;
 
 export default ProtectedRoute;
