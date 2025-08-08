@@ -16,14 +16,22 @@
   max-width: 272px;
   height: 272px;
   margin: 0 0 20px;
-  border-radius: 1000px;
+  border-radius: 50%;
   overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about__image-container:hover,
+.about__image-container:focus-within {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 .about__image {
   width: 100%;
   height: 100%;
-  align-self: center;
+  object-fit: cover;
 }
 
 .about__container {
@@ -34,7 +42,7 @@
 .about__header {
   height: 46px;
   width: 100%;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -44,7 +52,7 @@
 }
 
 .about__text {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -52,6 +60,26 @@
   text-align: left;
   white-space: pre-wrap;
   width: 100%;
+}
+
+.about__text ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.about__text li {
+  margin-bottom: 8px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media screen and (min-width: 375px) {
@@ -94,13 +122,12 @@
 
   .about__container {
     max-width: 424px;
-    height: 168px;
   }
 
   .about__header {
     font-size: 30px;
     line-height: 40px;
-    margin-bottom: 0;
+    margin-bottom: 16px;
   }
 
   .about__text {
@@ -112,7 +139,7 @@
 @media (min-width: 1024px) {
   .about {
     padding-top: 60px;
-    height: 458px;
+    height: auto;
   }
   .about__image-container {
     max-width: 354px;
@@ -121,14 +148,13 @@
   }
   .about__container {
     max-width: 500px;
-    margin-top: 41px;
+    margin-top: 0px;
   }
 }
 
 @media (min-width: 1440px) {
   .about {
     max-width: 1440px;
-    height: 624px;
     padding: 80px 216px 80px 104px;
   }
 
@@ -140,8 +166,6 @@
 
   .about__container {
     max-width: 600px;
-    height: 200px;
-    margin-top: 61px;
   }
 
   .about__header {
@@ -155,9 +179,3 @@
     line-height: 24px;
   }
 }
-
-
-
-
-
-
