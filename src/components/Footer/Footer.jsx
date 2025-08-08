@@ -1,8 +1,8 @@
-import React from 'react';
-import './Footer.css';
-import { Link } from 'react-router-dom';
-import gitHub from '../../images/gitHub.svg';
-import vector from '../../images/Vector.png';
+import React from "react";
+import "./Footer.css";
+import { Link } from "react-router-dom";
+import github from "../../images/github.png";
+import linkedin from "../../images/linkedin.png";
 
 function Footer() {
   return (
@@ -16,12 +16,12 @@ function Footer() {
           </span>
           <p className="footer__text">
             <a
-              href="https://practicum.yandex.com"
+              href="https://tripleten.com"
               rel="noreferrer"
               target="_blank"
               className="footer__info-link"
             >
-              Practicum by Yandex
+              TripleTen
             </a>
           </p>
         </div>
@@ -32,20 +32,20 @@ function Footer() {
               rel="noreferrer"
               target="_blank"
               className="footer__social"
-              style={{ backgroundImage: `url(${vector})` }}
+              style={{ backgroundImage: `url(${github})` }}
             >
-              {''}
+              {""}
             </a>
           </li>
           <li className="footer__icon-link">
             <a
-              href="https://www.facebook.com"
+              href="https://www.linkedin.com/in/olivia-cameronj"
               rel="noreferrer"
               target="_blank"
               className="footer__social"
-              style={{ backgroundImage: `url(${gitHub})` }}
+              style={{ backgroundImage: `url(${linkedin})` }}
             >
-              {''}
+              {""}
             </a>
           </li>
         </ul>
