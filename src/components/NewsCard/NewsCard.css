@@ -238,11 +238,6 @@
     -webkit-box-orient: vertical;
   }
 
-  .news-card__icon {
-    top: 8px;
-    right: 8px;
-  }
-
   .news-card__label {
     top: 8px;
     left: 10px;
