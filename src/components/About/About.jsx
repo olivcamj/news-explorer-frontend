@@ -4,19 +4,27 @@ import avatar from "../../images/avatar.png";
 
 function About() {
   return (
-    <div className="about">
-      <div className="about__image-container">
-        <img className="about__image" src={avatar} alt="Author: Olivia" />
-      </div>
-      <div className="about__container">
-        <h3 className="about__header">About the Author</h3>
+    <section className="about" aria-labelledby="about-heading">
+      <figure className="about__image-container">
+        <img
+          className="about__image"
+          src={avatar}
+          alt="Portrait of Olivia, software engineer"
+          loading="lazy"
+        />
+        <figcaption className="visually-hidden">Olivia, the author</figcaption>
+      </figure>
+      <article className="about__container">
+        <h2 id="about-heading" className="about__header">
+          About the Author
+        </h2>
         <div className="about__text">
           <p>
             Olivia is a software engineer passionate about creating clean,
             responsive, and accessible web applications. She graduated from the
-            TripleTen (formerly Practicum) program in June 2021, where
-            she built and deployed full-stack projects using HTML, CSS,
-            JavaScript, React, and Node.js with Express and MongoDB.
+            TripleTen (formerly Practicum) program in June 2021, where she built
+            and deployed full-stack projects using HTML, CSS, JavaScript, React,
+            and Node.js with Express and MongoDB.
           </p>
           <p>During her training, Olivia:</p>
           <ul>
@@ -39,8 +47,8 @@ function About() {
           problem-solving, and collaborative mindset to a forward-thinking
           development team.
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 }
 
