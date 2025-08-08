@@ -92,12 +92,14 @@ function Navigation(props) {
             <li className="nav__links">
               <NavLink
                 to="/"
-                className={`${
-                  location.pathname === "/saved-news"
-                    ? "nav__link_dark"
-                    : "nav__link"
-                }`}
-                activeClassName="nav__selected"
+                className={({ isActive }) =>
+                  `${isActive ? "nav__selected" : ""} :
+                  ${
+                    location.pathname === "/saved-news"
+                      ? "nav__link_dark"
+                      : "nav__link"
+                  }`
+                }
               >
                 Home
               </NavLink>
@@ -107,12 +109,16 @@ function Navigation(props) {
                 <li className="nav__links nav__saved_action_active">
                   <NavLink
                     to="/saved-news"
-                    className={` ${
-                      location.pathname === "/saved-news"
-                        ? "nav__link_dark"
-                        : "nav__link"
-                    }`}
-                    activeClassName="nav__selected nav__selected_view_black nav__selected_position_saved"
+                    className={({ isActive }) => `${
+                      isActive
+                        ? "nav__selected nav__selected_view_black nav__selected_position_saved"
+                        : ""
+                    } :
+                       ${
+                         location.pathname === "/saved-news"
+                           ? "nav__link_dark"
+                           : "nav__link"
+                       }`}
                   >
                     Saved Articles
                   </NavLink>
