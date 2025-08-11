@@ -36,7 +36,7 @@ function App() {
 
   const [preloaderVisible, setPreloaderVisible] = useState(false);
   const [showSearchResults, setShowSearchResults] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const [isSigninPopupOpen, setIsSigninPopupOpen] = useState(false);
@@ -155,8 +155,9 @@ function App() {
     await mainApi
       .deleteArticle(card._id, token)
       .then((res) => {
+        if (!res) return;
         if (res) {
-          const newSearchedCards = cards.map((searchedCard) => {
+          const updatedSearchedCards = cards.map((searchedCard) => {
             if (searchedCard.link === card.link) {
               searchedCard.isSaved = false;
               delete searchedCard._id;
@@ -164,7 +165,7 @@ function App() {
             return searchedCard;
           });
 
-          setCards(newSearchedCards);
+          setCards(updatedSearchedCards);
 
           const newSavedCards = savedCards.filter(
             (savedCard) => savedCard._id !== card._id
@@ -174,55 +175,45 @@ function App() {
           localStorage.setItem("cards", JSON.stringify(newSearchedCards));
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error("Failed to delete ssved cards: ", err));
   }
 
   function handleClickSave(article) {
-    if (isLoggedIn) {
-      // can't save a card if not logged in
-      if (article.isSaved) {
-        // eslint-disable-next-line array-callback-return
-        // eslint-disable-next-line consistent-return
-        savedCards.filter((items) => {
-          if (items.link === article.link) {
-            handleDeleteCard(items);
-          }
-          return article;
-        });
-      } else {
-        mainApi
-          .saveArticle(article, token)
-          .then((response) => {
-            setCards(
-              cards.map((item) =>
-                item.link === article.link
-                  ? {
-                      ...item,
-                      isSaved: !article.saved,
-                      date: displayDate(item.date),
-                      _id: article._id,
-                    }
-                  : item
-              )
-            );
+    if (!isLoggedIn) return; // can't save a card if not logged in
 
-            setSavedCards([...savedCards, retrieveSavedCards(token)]);
-          })
-          .catch((err) => console.log(err));
+    if (article.isSaved) {
+      const savedCard = savedCards.find((card) => card.link === article.link);
+      if (savedCard) {
+        handleDeleteCard(savedCard);
       }
+    } else {
+      mainApi
+        .saveArticle(article, token)
+        .then((newCard) => {
+          setCards((prevCards) =>
+            prevCards.map((item) =>
+              item.link === article.link
+                ? {
+                    ...item,
+                    isSaved: true,
+                    date: displayDate(item.date),
+                    _id: newCard._id,
+                  }
+                : item
+            )
+          );
+
+          retrieveSavedCards(token).then((freshSavedCards) => {
+            setSavedCards(freshSavedCards);
+          });
+        })
+        .catch((err) => console.error(err));
     }
   }
 
   function isSearchedArticleSaved(article, savedCards) {
-    let isSaved = false;
-    let id;
-    savedCards.forEach((savedCard) => {
-      if (article.link === savedCard.link) {
-        isSaved = true;
-        id = savedCard._id;
-      }
-    });
-    return [isSaved, id];
+    const savedCard = savedCards.find((card) => card.link === article.link);
+    return [Boolean(savedCard), savedCard?._id];
   }
 
   // eslint-disable-next-line consistent-return
@@ -256,7 +247,7 @@ function App() {
               };
 
               if (savedCards.length > 0) {
-                const [isSaved, id] = isSearchedArticleSaved(
+                const { isSaved, id } = isSearchedArticleSaved(
                   cardInfo,
                   savedCards
                 );
