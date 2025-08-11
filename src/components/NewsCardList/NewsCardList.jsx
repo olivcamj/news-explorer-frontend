@@ -15,7 +15,6 @@ function NewsCardList(props) {
           <NewsCard
             key={index}
             card={card}
-            location={props.location}
             isLoggedIn={props.isLoggedIn}
             onClickSave={props.onClickSave}
             onDelete={props.onDelete}

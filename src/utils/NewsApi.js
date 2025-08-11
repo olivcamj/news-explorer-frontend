@@ -5,21 +5,29 @@ class NewsApi {
   }
 
   async getCardList(request, from, to) {
-    // eslint-disable-next-line no-undef
-    return fetch(`${this._baseUrl}?language=en&q=${request}&from=${from}&to=${to}&pageSize=100&sortBy=popularity&apiKey=${this._apiKey}`,
+    return fetch(
+      `${this._baseUrl}?language=en&q=${request}&from=${from}&to=${to}&pageSize=100&sortBy=popularity&apiKey=${this._apiKey}`,
       {
         headers: {
           authorization: `Bearer ${this._apiKey}`,
         },
-      })
-      // eslint-disable-next-line prefer-promise-reject-errors
-      .then((res) => (res.ok ? res.json() : Promise.reject(`Error! ${res.statusText}`)));
+      }
+    ).then((res) =>
+      res.ok ? res.json() : Promise.reject(`Error! ${res.statusText}`)
+    );
   }
 }
 
+const newsApiKey = import.meta.env.VITE_NEWS_API_KEY;
+
+const newsApiBaseUrl =
+  import.meta.env.MODE === "production"
+    ? import.meta.env.VITE_NEWS_API_PROD
+    : import.meta.env.VITE_NEWS_API_DEV;
+
 const newsApi = new NewsApi({
-  baseUrl: 'https://nomoreparties.co/news/v2/everything',
-  apiKey: '11c734fad8f44c19ba1abbf6c3478776',
+  baseUrl: newsApiBaseUrl,
+  apiKey: newsApiKey,
 });
 
 export default newsApi;

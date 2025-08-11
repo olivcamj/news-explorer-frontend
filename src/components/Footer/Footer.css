@@ -7,7 +7,6 @@
 .footer__container {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
 }
 
 .footer__info {
@@ -18,7 +17,7 @@
 
 .footer__text {
   margin: 0;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -63,7 +62,7 @@
   margin-top: 38px;
   min-width: 293px;
   height: 22px;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -86,18 +85,20 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: baseline;
+    gap: 48px;
   }
 
   .footer__container {
-    width: 355px;
+    width: 280px;
   }
 
   .footer__info {
-    width: 264px;
+    width: 163px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    gap: 40px;
   }
 
   .footer__text {

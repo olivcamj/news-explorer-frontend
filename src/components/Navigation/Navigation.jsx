@@ -1,18 +1,20 @@
-import React from 'react';
+import React from "react";
 
-import { NavLink, Link } from 'react-router-dom';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import LogoutThemeLight from '../../images/logout-black.svg';
-import LogoutThemeDark from '../../images/logout-white.svg';
-import Close from '../../images/close-icon.svg';
-import './Navigation.css';
+import { NavLink, Link, useLocation } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import LogoutThemeLight from "../../images/logout-black.svg";
+import LogoutThemeDark from "../../images/logout-white.svg";
+import Close from "../../images/close-icon.svg";
+import "./Navigation.css";
 
-import hamburger from '../../images/hamburger.svg';
-import hamburgerDark from '../../images/hamburger-dark.svg';
+import hamburger from "../../images/hamburger.svg";
+import hamburgerDark from "../../images/hamburger-dark.svg";
 
 function Navigation(props) {
-  const handleMobileMenuDisplay = () => props.setIsMobileMenuOpen(!props.isMobileMenuOpen);
+  const handleMobileMenuDisplay = () =>
+    props.setIsMobileMenuOpen(!props.isMobileMenuOpen);
   const currentUser = React.useContext(CurrentUserContext);
+  const location = useLocation();
 
   return (
     <>
@@ -22,11 +24,7 @@ function Navigation(props) {
             <nav>
               <img
                 src={`
-            ${
-              props.location.pathname === '/saved-news'
-                ? hamburgerDark
-                : hamburger
-            }`}
+            ${location.pathname === "/saved-news" ? hamburgerDark : hamburger}`}
                 alt="menu icon"
                 className="nav__icon nav__img"
                 onClick={handleMobileMenuDisplay}
@@ -42,8 +40,8 @@ function Navigation(props) {
               <ul
                 className={`nav__linkList nav__mobile ${
                   props.isMobile
-                    ? 'nav__mobile-menu'
-                    : 'nav__mobile-menu_hidden'
+                    ? "nav__mobile-menu"
+                    : "nav__mobile-menu_hidden"
                 }`}
               >
                 <li className="nav__links">
@@ -93,14 +91,15 @@ function Navigation(props) {
           <ul className="nav__linkList">
             <li className="nav__links">
               <NavLink
-                exact
                 to="/"
-                className={`${
-                  props.location.pathname === '/saved-news'
-                    ? 'nav__link_dark'
-                    : 'nav__link'
-                }`}
-                activeClassName="nav__selected"
+                className={({ isActive }) =>
+                  `${isActive ? "nav__selected" : ""} :
+                  ${
+                    location.pathname === "/saved-news"
+                      ? "nav__link_dark"
+                      : "nav__link"
+                  }`
+                }
               >
                 Home
               </NavLink>
@@ -109,14 +108,17 @@ function Navigation(props) {
               <>
                 <li className="nav__links nav__saved_action_active">
                   <NavLink
-                    exact
                     to="/saved-news"
-                    className={` ${
-                      props.location.pathname === '/saved-news'
-                        ? 'nav__link_dark'
-                        : 'nav__link'
-                    }`}
-                    activeClassName="nav__selected nav__selected_view_black nav__selected_position_saved"
+                    className={({ isActive }) => `${
+                      isActive
+                        ? "nav__selected nav__selected_view_black nav__selected_position_saved"
+                        : ""
+                    } :
+                       ${
+                         location.pathname === "/saved-news"
+                           ? "nav__link_dark"
+                           : "nav__link"
+                       }`}
                   >
                     Saved Articles
                   </NavLink>
@@ -125,16 +127,16 @@ function Navigation(props) {
                   <button
                     onClick={props.onSignout}
                     className={`nav__btn nav__btn_user ${
-                      props.location.pathname === '/saved-news'
-                        ? 'nav__btn_theme_dark'
-                        : ''
+                      location.pathname === "/saved-news"
+                        ? "nav__btn_theme_dark"
+                        : ""
                     }`}
                   >
                     <span
                       className={`nav__btn_username ${
-                        props.location.pathname === '/'
-                          ? 'nav_theme_dark'
-                          : 'nav_theme_light'
+                        location.pathname === "/"
+                          ? "nav_theme_dark"
+                          : "nav_theme_light"
                       }`}
                       aria-label="username"
                     >
@@ -143,7 +145,7 @@ function Navigation(props) {
                     <img
                       src={`
                         ${
-                          props.location.pathname === '/saved-news'
+                          location.pathname === "/saved-news"
                             ? LogoutThemeLight
                             : LogoutThemeDark
                         }`}

@@ -7,6 +7,10 @@
 }
 
 .news-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
   width: 100%;
   height: 234px;
   padding: 16px;
@@ -14,8 +18,8 @@
 }
 
 .news-card__image {
-  width: 288px;
-  height: 196px;
+  aspect-ratio: 16 / 11;
+  width: 100%;
   position: relative;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -39,26 +43,25 @@
 }
 
 .news-card__icon_action_save {
-  background-image: url('../../images/bookmark.svg');
+  background-image: url("../../images/bookmark.svg");
   cursor: pointer;
 }
 
 .news-card__icon_action_save:hover {
-  background-image: url('../../images/bookmark-black.svg');
+  background-image: url("../../images/bookmark-black.svg");
 }
 
 .news-card__icon_action_save_active {
-  background-image: url('../../images/bookmark-filled.svg');
+  background-image: url("../../images/bookmark-filled.svg");
 }
 
 .news-card__icon_action_delete {
-  background-image: url('../../images/trash-icon.svg');
+  background-image: url("../../images/trash-icon.svg");
   cursor: pointer;
 }
 
 .news-card__date {
-  margin-bottom: 10px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -69,14 +72,13 @@
 
 .news-card__title {
   width: 256px;
-  max-height: 60px;
-  margin-bottom: 20px;
+  height: auto;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
@@ -87,14 +89,13 @@
 
 .news-card__text {
   width: 256px;
-  height: 66px;
-  margin-bottom: 14px;
+  height: auto;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -103,12 +104,13 @@
 }
 
 .news-card__source {
-  font-family: 'Roboto Slab', serif;
+  max-width: 150px;
+  font-family: "Roboto Slab", serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
   color: #b6bcbf;
   overflow: hidden;
@@ -117,24 +119,18 @@
 }
 
 .news-card__label {
-  width: auto;
+  width: 70px;
   height: 40px;
-  padding: 0 22px;
-  display: flex;
-  align-items: center;
+  display: block;
   background: #fff;
   border-radius: 10px;
-  font-family: 'Roboto', Arial, sans-serif;
-  font-style: normal;
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 14.06px;
+  font-size: 14px;
+  line-height: 40px;
   color: var(--black);
   text-align: center;
   text-transform: capitalize;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .news-card__label_right {
@@ -142,7 +138,7 @@
   position: absolute;
   top: 16px;
   right: 69px;
-  box-shadow: 0px 10px 22px rgba(59, 74, 116, .1);
+  box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
   font-size: 12px;
   cursor: pointer;
   text-transform: inherit;
@@ -156,25 +152,21 @@
   position: absolute;
   top: 16px;
   left: 16px;
-  font-size: 14px;
-  padding: 0 22px;
+  padding: 0 12px;
+  max-width: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.news-card__icon_action_delete {
-  background-image: url('../../images/trash-icon.svg');
-}
-
 .news-card__icon_action_delete:hover {
-  background-image: url('../../images/trash_black.svg');
+  background-image: url("../../images/trash_black.svg");
 }
 
 @media screen and (min-width: 520px) {
   .news-card {
     width: 224px;
-    height: 390px;
+    height: 420px;
   }
 
   .news-card__content {
@@ -182,23 +174,17 @@
     height: 270px;
   }
 
-  .news-card__image {
-    width: 224px;
-    height: 150px;
-  }
-
   .news-card__title {
     width: 100%;
     max-height: 52px;
-    margin-bottom: 10px;
-    text-decoration:none;
+    text-decoration: none;
   }
 
   .news-card__text {
     width: 100%;
   }
 
-   .news-card__source {
+  .news-card__source {
     width: 192px;
   }
 
@@ -219,12 +205,9 @@
   }
 
   .news-card__title {
-   max-height: 72px;
+    max-height: 72px;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
-  }
-
-  .news-card__date {
-    margin-bottom: 10px;
   }
 
   .news-card__title:visited {
@@ -235,17 +218,12 @@
   .news-card__text {
     height: 88px;
     width: 192px;
-    margin-bottom: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
+    line-clamp: 4;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-  }
-
-  .news-card__icon {
-    top: 8px;
-    right: 8px;
   }
 
   .news-card__label {
@@ -265,12 +243,7 @@
 @media (min-width: 1024px) {
   .news-card {
     width: 320px;
-    height: 419px;
-  }
-
-  .news-card__image {
-    width: 320px;
-    height: 150px;
+    height: 489px;
   }
 
   .news-card__icon {
@@ -301,12 +274,12 @@
     left: 84px;
   }
 
-  .news-card__label_delete  {
+  .news-card__label_delete {
     padding: 0 22px;
     position: absolute;
     top: 24px;
     left: 99px;
-    box-shadow: 0px 10px 22px rgba(59, 74, 116, .1);
+    box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
     font-size: 12px;
     cursor: pointer;
     text-transform: inherit;
@@ -319,11 +292,6 @@
     height: 576px;
   }
 
-  .news-card__image {
-    width: 400px;
-    height: 272px;
-  }
-
   .news-card__content {
     width: 400px;
     height: 304px;
@@ -334,6 +302,7 @@
     font-size: 26px;
     line-height: 30px;
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
@@ -341,9 +310,9 @@
   .news-card__text {
     width: 352px;
     height: 110px;
-    margin-bottom: 18px;
     -webkit-line-clamp: 5;
-
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
   }
 
   .news-card__source {
