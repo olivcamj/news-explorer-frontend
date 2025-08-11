@@ -63,6 +63,7 @@ function NewsCard(props) {
             onMouseEnter={handleShowToolTip}
             onMouseLeave={handleHideToolTip}
             onClick={props.onClickLink}
+            aria-label="Sign in to save articles"
           ></button>
         </>
       )}
