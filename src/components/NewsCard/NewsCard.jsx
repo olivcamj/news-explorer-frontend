@@ -54,6 +54,7 @@ function NewsCard(props) {
               showToolTip ? "" : "news-card__label_hidden"
             }`}
             onClick={props.onClickLink}
+            role="note"
           >
             Sign in to save articles
           </div>
