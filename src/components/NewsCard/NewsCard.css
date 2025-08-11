@@ -166,7 +166,7 @@
 @media screen and (min-width: 520px) {
   .news-card {
     width: 224px;
-    height: 390px;
+    height: 420px;
   }
 
   .news-card__content {
@@ -243,7 +243,7 @@
 @media (min-width: 1024px) {
   .news-card {
     width: 320px;
-    height: 419px;
+    height: 489px;
   }
 
   .news-card__icon {
