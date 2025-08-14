@@ -227,7 +227,9 @@ function App() {
       setErrorMessage("Please enter a search term");
       setShowSearchResults(true);
     } else {
-      setSearchTerm(localStorage.setItem("searchTerm", searchTerm));
+      setSearchTerm(
+        localStorage.setItem("searchTerm", JSON.stringify(searchTerm))
+      );
       // eslint-disable-next-line no-return-await
       return await newsApi
         .getCardList(searchTerm, dateInput.from, dateInput.to)
